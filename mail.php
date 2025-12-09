@@ -19,8 +19,8 @@ try {
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port = 465;
 
-    $mail->setFrom('mail@mcyigit.net', 'Gonderen Ismi');
-    $mail->addAddress('cahityigit0068@gmail.com', 'Alici Ismi');
+    $mail->setFrom('mail@mcyigit.net', 'Mert Cahit Yigit');
+    $mail->addAddress('cahityigit0068@gmail.com', 'Mert Cahit Yigit');
 
     $mail->isHTML(true);                                  
     $mail->Subject = 'PHP ile Zoho Mail Testi';
