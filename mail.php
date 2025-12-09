@@ -16,8 +16,8 @@ try {
     $mail->SMTPAuth = true;
     $mail->Username = 'mail@mcyigit.net';
     $mail->Password = 'izJqMjp5B2R5';
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-    $mail->Port = 465;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 587;
 
     $mail->setFrom('mail@mcyigit.net', 'Mert Cahit Yigit');
     $mail->addAddress('cahityigit0068@gmail.com', 'Mert Cahit Yigit');
