@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../config.php';
 require_roles(ROLE_MANAGER, ROLE_EXECUTIVE);
 
+$currentUser = current_user();
 $canAssignExecutive = user_has_role(ROLE_EXECUTIVE);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -40,10 +41,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 set_flash('success', 'Yeni kullanici olusturuldu.');
             }
         }
+    } elseif ($action === 'delete_user' && $canAssignExecutive && isset($_POST['user_id'])) {
+        $targetId = (int) $_POST['user_id'];
+        if ($targetId === ($currentUser['id'] ?? null)) {
+            set_flash('error', 'Kendi hesabinizi silemezsiniz.');
+        } else {
+            $stmt = db()->prepare('DELETE FROM users WHERE id = ?');
+            $stmt->bind_param('i', $targetId);
+            $stmt->execute();
+            $stmt->close();
+            set_flash('warning', 'Kullanici silindi.');
+        }
     } elseif (isset($_POST['user_id'])) {
         $targetId = (int) $_POST['user_id'];
         $status = $_POST['status'] ?? USER_STATUS_PENDING;
         $role = $_POST['role'] ?? ROLE_STUDENT;
+        $fullName = trim($_POST['full_name'] ?? '');
+        $email = trim($_POST['email'] ?? '');
+        $department = trim($_POST['department'] ?? '');
 
         $roleWhitelist = $canAssignExecutive
             ? array_keys(ROLE_LABELS)
@@ -53,11 +68,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             set_flash('error', 'Gecersiz rol secimi.');
         } elseif (!in_array($status, [USER_STATUS_PENDING, USER_STATUS_ACTIVE, USER_STATUS_DISABLED], true)) {
             set_flash('error', 'Gecersiz durum.');
+        } elseif ($canAssignExecutive && (!$fullName || !$email)) {
+            set_flash('error', 'Ad ve email zorunludur.');
         } else {
-            $stmt = db()->prepare('UPDATE users SET role = ?, status = ? WHERE id = ?');
-            $stmt->bind_param('ssi', $role, $status, $targetId);
-            $stmt->execute();
-            $stmt->close();
+            if ($canAssignExecutive) {
+                $stmt = db()->prepare('SELECT id FROM users WHERE email = ? AND id <> ? LIMIT 1');
+                $stmt->bind_param('si', $email, $targetId);
+                $stmt->execute();
+                $emailConflict = $stmt->get_result()->fetch_assoc();
+                $stmt->close();
+
+                if ($emailConflict) {
+                    set_flash('error', 'Bu email baska bir hesaba ait.');
+                    redirect('manage_users.php');
+                }
+
+                $stmt = db()->prepare('UPDATE users SET full_name = ?, email = ?, department = ?, role = ?, status = ? WHERE id = ?');
+                $stmt->bind_param('sssssi', $fullName, $email, $department, $role, $status, $targetId);
+                $stmt->execute();
+                $stmt->close();
+            } else {
+                $stmt = db()->prepare('UPDATE users SET role = ?, status = ? WHERE id = ?');
+                $stmt->bind_param('ssi', $role, $status, $targetId);
+                $stmt->execute();
+                $stmt->close();
+            }
+
             set_flash('success', 'Kullanici guncellendi.');
         }
     }
@@ -127,6 +163,7 @@ include __DIR__ . '/partials/nav.php';
                 <tr>
                     <th>Ad Soyad</th>
                     <th>Email</th>
+                    <th>Birim</th>
                     <th>Rol</th>
                     <th>Durum</th>
                     <th>Islem</th>
@@ -137,11 +174,22 @@ include __DIR__ . '/partials/nav.php';
                     <tr>
                         <td><?php echo e($row['full_name']); ?></td>
                         <td><?php echo e($row['email']); ?></td>
+                        <td><?php echo e($row['department'] ?: '—'); ?></td>
                         <td><?php echo e(ROLE_LABELS[$row['role']] ?? $row['role']); ?></td>
                         <td><?php echo e($row['status']); ?></td>
                         <td>
                             <form method="post" class="form-inline">
+                                <input type="hidden" name="mode" value="update_user">
                                 <input type="hidden" name="user_id" value="<?php echo e($row['id']); ?>">
+                                <?php if ($canAssignExecutive): ?>
+                                    <input type="text" name="full_name" value="<?php echo e($row['full_name']); ?>" placeholder="Ad Soyad" required>
+                                    <input type="email" name="email" value="<?php echo e($row['email']); ?>" placeholder="Email" required>
+                                    <input type="text" name="department" value="<?php echo e($row['department']); ?>" placeholder="Birim">
+                                <?php else: ?>
+                                    <input type="hidden" name="full_name" value="<?php echo e($row['full_name']); ?>">
+                                    <input type="hidden" name="email" value="<?php echo e($row['email']); ?>">
+                                    <input type="hidden" name="department" value="<?php echo e($row['department']); ?>">
+                                <?php endif; ?>
                                 <select name="role">
                                     <?php foreach (ROLE_LABELS as $key => $label): ?>
                                         <?php if (!$canAssignExecutive && $key === ROLE_EXECUTIVE) { continue; } ?>
@@ -155,6 +203,13 @@ include __DIR__ . '/partials/nav.php';
                                 </select>
                                 <button class="btn btn-secondary" type="submit">Kaydet</button>
                             </form>
+                            <?php if ($canAssignExecutive && $row['id'] !== ($currentUser['id'] ?? null)): ?>
+                                <form method="post" onsubmit="return confirm('Kullanici kalici olarak silinecek. Devam edilsin mi?');" style="margin-top:0.5rem;">
+                                    <input type="hidden" name="mode" value="delete_user">
+                                    <input type="hidden" name="user_id" value="<?php echo e($row['id']); ?>">
+                                    <button class="btn btn-danger" type="submit">Sil</button>
+                                </form>
+                            <?php endif; ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>

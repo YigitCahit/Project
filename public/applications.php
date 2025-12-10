@@ -37,6 +37,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'], $_POST['app
             } else {
                 set_flash('error', 'Reddetme yetkiniz yok.');
             }
+        } elseif ($action === 'reset' && user_has_role(ROLE_EXECUTIVE)) {
+            if ($application['status'] === APPLICATION_STATUS_APPROVED) {
+                $stmt = db()->prepare('UPDATE applications SET status = ?, updated_at = NOW() WHERE id = ?');
+                $status = APPLICATION_STATUS_PENDING_CLERK;
+                $stmt->bind_param('si', $status, $appId);
+                $stmt->execute();
+                $stmt->close();
+                log_status_change($appId, $status, $user['id'], $note ?: 'Ust yonetici onayi kaldirdi');
+                set_flash('info', 'Onay kaldirildi ve basvuru yeniden memur sirasina alindi.');
+            } else {
+                set_flash('error', 'Sadece onaylanmis basvurular geri alinabilir.');
+            }
         }
     }
 
@@ -95,12 +107,18 @@ include __DIR__ . '/partials/nav.php';
                         <td><a href="view_application.php?id=<?php echo e($application['id']); ?>">Detay</a></td>
                         <?php if (user_has_role(ROLE_CLERK, ROLE_MANAGER, ROLE_EXECUTIVE)): ?>
                             <td>
-                                <?php if ($application['status'] !== APPLICATION_STATUS_APPROVED && $application['status'] !== APPLICATION_STATUS_REJECTED): ?>
+                                <?php if ($application['status'] === APPLICATION_STATUS_PENDING_CLERK): ?>
                                     <form method="post" class="actions-inline">
                                         <input type="hidden" name="application_id" value="<?php echo e($application['id']); ?>">
                                         <input type="text" name="note" placeholder="Opsiyonel not" style="max-width: 140px;">
                                         <button class="btn btn-secondary" name="action" value="approve">Onay</button>
                                         <button class="btn" style="background:#fff;color:var(--danger);border:1px solid var(--danger);" name="action" value="reject">Red</button>
+                                    </form>
+                                <?php elseif (user_has_role(ROLE_EXECUTIVE) && $application['status'] === APPLICATION_STATUS_APPROVED): ?>
+                                    <form method="post" class="actions-inline">
+                                        <input type="hidden" name="application_id" value="<?php echo e($application['id']); ?>">
+                                        <input type="text" name="note" placeholder="Sebep" style="max-width: 140px;">
+                                        <button class="btn btn-secondary" name="action" value="reset">Onayi Kaldir</button>
                                     </form>
                                 <?php else: ?>
                                     -
