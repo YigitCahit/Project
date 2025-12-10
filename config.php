@@ -4,8 +4,8 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 define('DB_HOST', 'localhost');
-define('DB_USER', 'mert');
-define('DB_PASS', '22446868');
+define('DB_USER', 'root');
+define('DB_PASS', '');
 define('DB_NAME', 'yatay_gecis');
 
 define('UPLOAD_PATH', __DIR__ . '/public/uploads');
