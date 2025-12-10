@@ -9,6 +9,7 @@ PHP ve MySQL uzerinde kurgulanan bu platform, baska universitelerden yatay gecis
 - Durum loglari ve tek tikla basvuru belgesi indirme
 - Ogrenci ve personel icin ayri kayit ekranlari, personel icin onay bekleme sureci
 - Modern ve resmi arayuz, responsive tasarim
+- Ust yoneticiler panelden dogrudan yeni kullanici olusturabilir
 
 ## Kurulum
 1. Depoyu sunucunuza kopyalayin.
