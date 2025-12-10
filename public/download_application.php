@@ -16,7 +16,13 @@ $allowed = false;
 if ($user['role'] === ROLE_STUDENT && $application['user_id'] === $user['id']) {
     $allowed = true;
 } elseif (in_array($user['role'], [ROLE_CLERK, ROLE_CHAIR, ROLE_MANAGER, ROLE_EXECUTIVE], true)) {
-    if ($user['role'] === ROLE_CHAIR && $user['department'] !== $application['target_department']) {
+    if (
+        $user['role'] === ROLE_CHAIR
+        && (
+            $user['department'] !== $application['target_department']
+            || $application['status'] !== APPLICATION_STATUS_APPROVED
+        )
+    ) {
         $allowed = false;
     } else {
         $allowed = true;

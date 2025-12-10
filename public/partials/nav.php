@@ -18,6 +18,9 @@
             <?php if (user_has_role(ROLE_MANAGER, ROLE_EXECUTIVE)): ?>
                 <a href="manage_users.php">Kullanici Yonetimi</a>
             <?php endif; ?>
+            <?php if (user_has_role(ROLE_EXECUTIVE)): ?>
+                <a href="executive_tools.php">Ust Yonetim</a>
+            <?php endif; ?>
         <?php else: ?>
             <a href="login.php">Giris</a>
             <a href="register_student.php">Ogrenci Kaydi</a>

@@ -146,7 +146,7 @@ function status_badge_class(string $status): string
     return match ($status) {
         APPLICATION_STATUS_APPROVED => 'badge-success',
         APPLICATION_STATUS_REJECTED => 'badge-danger',
-        APPLICATION_STATUS_PENDING_CLERK, APPLICATION_STATUS_PENDING_CHAIR, APPLICATION_STATUS_PENDING_MANAGER, APPLICATION_STATUS_PENDING_EXECUTIVE => 'badge-warning',
+        APPLICATION_STATUS_PENDING_CLERK => 'badge-warning',
         default => 'badge-muted',
     };
 }
@@ -161,21 +161,10 @@ function available_applications_query(array $user): string
         case ROLE_EXECUTIVE:
             return 'SELECT * FROM applications ORDER BY created_at DESC';
         case ROLE_CHAIR:
-            return 'SELECT * FROM applications WHERE target_department = ? ORDER BY created_at DESC';
+            return "SELECT * FROM applications WHERE target_department = ? AND status = 'approved' ORDER BY created_at DESC";
         default:
             return 'SELECT * FROM applications WHERE 1 = 0';
     }
-}
-
-function next_status_after_approval(string $role): ?string
-{
-    return match ($role) {
-        ROLE_CLERK => APPLICATION_STATUS_PENDING_CHAIR,
-        ROLE_CHAIR => APPLICATION_STATUS_PENDING_MANAGER,
-        ROLE_MANAGER => APPLICATION_STATUS_PENDING_EXECUTIVE,
-        ROLE_EXECUTIVE => APPLICATION_STATUS_APPROVED,
-        default => null,
-    };
 }
 
 function can_transition_status(array $user, array $application, string $newStatus): bool
@@ -183,22 +172,16 @@ function can_transition_status(array $user, array $application, string $newStatu
     $role = $user['role'];
     $current = $application['status'];
 
-    $allowed = [
-        ROLE_CLERK => [
-            APPLICATION_STATUS_PENDING_CLERK => [APPLICATION_STATUS_PENDING_CHAIR, APPLICATION_STATUS_REJECTED],
-        ],
-        ROLE_CHAIR => [
-            APPLICATION_STATUS_PENDING_CHAIR => [APPLICATION_STATUS_PENDING_MANAGER, APPLICATION_STATUS_REJECTED],
-        ],
-        ROLE_MANAGER => [
-            APPLICATION_STATUS_PENDING_MANAGER => [APPLICATION_STATUS_PENDING_EXECUTIVE, APPLICATION_STATUS_APPROVED, APPLICATION_STATUS_REJECTED],
-        ],
-        ROLE_EXECUTIVE => [
-            APPLICATION_STATUS_PENDING_EXECUTIVE => [APPLICATION_STATUS_APPROVED, APPLICATION_STATUS_REJECTED],
-        ],
-    ];
+    if ($role === ROLE_EXECUTIVE) {
+        return in_array($newStatus, [APPLICATION_STATUS_APPROVED, APPLICATION_STATUS_REJECTED, APPLICATION_STATUS_PENDING_CLERK], true);
+    }
 
-    return isset($allowed[$role][$current]) && in_array($newStatus, $allowed[$role][$current], true);
+    if (in_array($role, [ROLE_CLERK, ROLE_MANAGER], true)) {
+        return $current === APPLICATION_STATUS_PENDING_CLERK
+            && in_array($newStatus, [APPLICATION_STATUS_APPROVED, APPLICATION_STATUS_REJECTED], true);
+    }
+
+    return false;
 }
 
 function map_instruction_label(string $value): string

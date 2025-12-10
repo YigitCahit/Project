@@ -178,6 +178,11 @@ main {
     color: white;
 }
 
+.btn-danger {
+    background: var(--danger);
+    color: white;
+}
+
 .btn:hover {
     transform: translateY(-2px);
 }

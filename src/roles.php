@@ -19,19 +19,13 @@ const USER_STATUS_DISABLED = 'disabled';
 
 const APPLICATION_STATUS_DRAFT = 'draft';
 const APPLICATION_STATUS_PENDING_CLERK = 'pending_clerk';
-const APPLICATION_STATUS_PENDING_CHAIR = 'pending_chair';
-const APPLICATION_STATUS_PENDING_MANAGER = 'pending_manager';
-const APPLICATION_STATUS_PENDING_EXECUTIVE = 'pending_executive';
 const APPLICATION_STATUS_APPROVED = 'approved';
 const APPLICATION_STATUS_REJECTED = 'rejected';
 
 const APPLICATION_STATUS_LABELS = [
     APPLICATION_STATUS_DRAFT => 'Taslak',
     APPLICATION_STATUS_PENDING_CLERK => 'Memur Onayi Bekliyor',
-    APPLICATION_STATUS_PENDING_CHAIR => 'Bolum Onayi Bekliyor',
-    APPLICATION_STATUS_PENDING_MANAGER => 'Yonetici Onayi Bekliyor',
-    APPLICATION_STATUS_PENDING_EXECUTIVE => 'Ust Yonetici Onayi Bekliyor',
-    APPLICATION_STATUS_APPROVED => 'Onaylandi',
+    APPLICATION_STATUS_APPROVED => 'Memur Onayladi · Bolum Baskani Bilgilendirildi',
     APPLICATION_STATUS_REJECTED => 'Reddedildi',
 ];
 

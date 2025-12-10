@@ -5,11 +5,12 @@ PHP ve MySQL uzerinde kurgulanan bu platform, baska universitelerden yatay gecis
 ## Ozellikler
 - Rol bazli erisim (Ogrenci, Memur, Bolum Baskani, Yonetici, Ust Yonetici)
 - Zorunlu ve opsiyonel tum belgeler icin yukleme ve guvenli indirme
-- Basvuru durum akisi (Memur → Bolum Baskani → Yonetici → Ust Yonetici)
+- Basvuru durum akisi: memur onayi ardindan bolum baskanina otomatik bildirim
 - Durum loglari ve tek tikla basvuru belgesi indirme
 - Ogrenci ve personel icin ayri kayit ekranlari, personel icin onay bekleme sureci
 - Modern ve resmi arayuz, responsive tasarim
 - Ust yoneticiler panelden dogrudan yeni kullanici olusturabilir
+- Onaylamak icin "ONAY" yazilmasini zorunlu kilan ek guvenlik adimi
 
 ## Kurulum
 1. Depoyu sunucunuza kopyalayin.
@@ -37,6 +38,18 @@ Parolalar PHP uzerinde `password_hash` ile olusturuluyor. Yukaridaki ornek MySQL
 - Ogrenciler `Ogrenci Kaydi`, personeller `Personel Kaydi` sayfasindan kayit olur.
 - Personel hesaplari `Yonetici` veya `Ust Yonetici` tarafindan `Kullanici Yonetimi` ekranindan aktif edilir.
 - Ogrenciler "Yeni Basvuru" formunu doldurup belgelerini yukler. Memurlar siradaki basvuruyu onayladiginda otomatik olarak bolum baskanina gider.
+
+### Onay ve Yetki Notlari
+- Memur kullanicilar (ve gerekli durumlarda yoneticiler) basvuruyu onaylarken formdaki dogrulama alanina "ONAY" yazmak zorundadir.
+- Bolum baskanlari yalnizca kendi bolumlerine ait ve memur tarafindan onaylanmis basvurulari goruntuler.
+- Yonetici rolleri hem kullanici hesaplarini onaylayabilir hem de memurun yerine basvurulari onaylayip reddedebilir.
+- Ust yoneticiler tum islemlere ek olarak kullanici olusturma, duzenleme ve silme islemlerini ozellestirilmis panelden yurutur.
+
+### Ust Yonetim Araclari
+`executive_tools.php` sayfasi yalnizca ust yoneticilere aciktir. Bu sayfa uzerinden:
+- Tum basvuru, belge ve durum loglari silinebilir.
+- Sistem uploads klasoru temizlenir.
+- Ust yonetici haric tum kullanicilar kaldirilir; boylece sifir bir kurulum elde edilir.
 
 ## Dizinyapisi
 ```

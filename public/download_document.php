@@ -5,7 +5,7 @@ require_login();
 db();
 $docId = (int) ($_GET['id'] ?? 0);
 
-$stmt = db()->prepare('SELECT d.*, a.user_id, a.target_department FROM application_documents d JOIN applications a ON d.application_id = a.id WHERE d.id = ? LIMIT 1');
+$stmt = db()->prepare('SELECT d.*, a.user_id, a.target_department, a.status FROM application_documents d JOIN applications a ON d.application_id = a.id WHERE d.id = ? LIMIT 1');
 $stmt->bind_param('i', $docId);
 $stmt->execute();
 $document = $stmt->get_result()->fetch_assoc();
@@ -23,7 +23,11 @@ if ($user['role'] === ROLE_STUDENT && $document['user_id'] == $user['id']) {
     $allowed = true;
 } elseif (in_array($user['role'], [ROLE_CLERK, ROLE_MANAGER, ROLE_EXECUTIVE], true)) {
     $allowed = true;
-} elseif ($user['role'] === ROLE_CHAIR && $user['department'] === $document['target_department']) {
+} elseif (
+    $user['role'] === ROLE_CHAIR
+    && $user['department'] === $document['target_department']
+    && $document['status'] === APPLICATION_STATUS_APPROVED
+) {
     $allowed = true;
 }
 

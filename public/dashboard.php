@@ -45,13 +45,11 @@ include __DIR__ . '/partials/nav.php';
                 if ($user['role'] === ROLE_STUDENT) {
                     echo count($studentApplications);
                 } elseif ($user['role'] === ROLE_CHAIR) {
-                    echo application_count(APPLICATION_STATUS_PENDING_CHAIR, $user['department']);
-                } elseif ($user['role'] === ROLE_CLERK) {
+                    echo application_count(APPLICATION_STATUS_APPROVED, $user['department']);
+                } elseif (in_array($user['role'], [ROLE_CLERK, ROLE_MANAGER], true)) {
                     echo application_count(APPLICATION_STATUS_PENDING_CLERK);
-                } elseif ($user['role'] === ROLE_MANAGER) {
-                    echo application_count(APPLICATION_STATUS_PENDING_MANAGER);
                 } else {
-                    echo application_count(APPLICATION_STATUS_PENDING_EXECUTIVE);
+                    echo application_count(APPLICATION_STATUS_PENDING_CLERK);
                 }
                 ?>
             </p>

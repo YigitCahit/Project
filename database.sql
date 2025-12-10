@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS applications (
     student_last_name VARCHAR(100) NOT NULL,
     student_address VARCHAR(255) NOT NULL,
     student_phone VARCHAR(40) NOT NULL,
-    status ENUM('draft','pending_clerk','pending_chair','pending_manager','pending_executive','approved','rejected') NOT NULL DEFAULT 'pending_clerk',
+    status ENUM('draft','pending_clerk','approved','rejected') NOT NULL DEFAULT 'pending_clerk',
     notes TEXT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

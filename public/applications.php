@@ -8,20 +8,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'], $_POST['app
     $appId = (int) $_POST['application_id'];
     $action = $_POST['action'];
     $note = trim($_POST['note'] ?? '');
+    $confirmToken = strtoupper(trim($_POST['confirm_token'] ?? ''));
     $application = fetch_application($appId);
 
     if (!$application) {
         set_flash('error', 'Basvuru bulunamadi.');
     } else {
         if ($action === 'approve') {
-            $nextStatus = next_status_after_approval($user['role']);
-            if ($nextStatus && can_transition_status($user, $application, $nextStatus)) {
+            if ($confirmToken !== 'ONAY') {
+                set_flash('error', 'Onay icin ONAY yazmalisiniz.');
+            } elseif (can_transition_status($user, $application, APPLICATION_STATUS_APPROVED)) {
                 $stmt = db()->prepare('UPDATE applications SET status = ?, updated_at = NOW() WHERE id = ?');
-                $stmt->bind_param('si', $nextStatus, $appId);
+                $newStatus = APPLICATION_STATUS_APPROVED;
+                $stmt->bind_param('si', $newStatus, $appId);
                 $stmt->execute();
                 $stmt->close();
-                log_status_change($appId, $nextStatus, $user['id'], $note ?: 'Onaylandi');
-                set_flash('success', 'Basvuru durumu guncellendi.');
+                log_status_change($appId, $newStatus, $user['id'], $note ?: 'Onaylandi');
+                set_flash('success', 'Basvuru onaylandi ve bolum baskanina bildirildi.');
             } else {
                 set_flash('error', 'Bu duruma gecis yetkiniz yok.');
             }
@@ -79,7 +82,7 @@ include __DIR__ . '/partials/nav.php';
                     <th>Hedef Bolum</th>
                     <th>Durum</th>
                     <th>Belgeler</th>
-                    <?php if (user_has_role(ROLE_CLERK, ROLE_CHAIR, ROLE_MANAGER, ROLE_EXECUTIVE)): ?>
+                    <?php if (user_has_role(ROLE_CLERK, ROLE_MANAGER, ROLE_EXECUTIVE)): ?>
                         <th>Islemler</th>
                     <?php endif; ?>
                 </tr>
@@ -93,12 +96,13 @@ include __DIR__ . '/partials/nav.php';
                         <td><?php echo e($application['target_department']); ?></td>
                         <td><span class="badge <?php echo e(status_badge_class($application['status'])); ?>"><?php echo e(APPLICATION_STATUS_LABELS[$application['status']] ?? $application['status']); ?></span></td>
                         <td><a href="view_application.php?id=<?php echo e($application['id']); ?>">Detay</a></td>
-                        <?php if (user_has_role(ROLE_CLERK, ROLE_CHAIR, ROLE_MANAGER, ROLE_EXECUTIVE)): ?>
+                        <?php if (user_has_role(ROLE_CLERK, ROLE_MANAGER, ROLE_EXECUTIVE)): ?>
                             <td>
                                 <?php if ($application['status'] !== APPLICATION_STATUS_APPROVED && $application['status'] !== APPLICATION_STATUS_REJECTED): ?>
                                     <form method="post" class="actions-inline">
                                         <input type="hidden" name="application_id" value="<?php echo e($application['id']); ?>">
-                                        <input type="text" name="note" placeholder="Not" style="max-width: 140px;">
+                                        <input type="text" name="note" placeholder="Opsiyonel not" style="max-width: 140px;">
+                                        <input type="text" name="confirm_token" placeholder="Onay icin ONAY" style="max-width: 140px;">
                                         <button class="btn btn-secondary" name="action" value="approve">Onay</button>
                                         <button class="btn" style="background:#fff;color:var(--danger);border:1px solid var(--danger);" name="action" value="reject">Red</button>
                                     </form>
