@@ -122,143 +122,161 @@ include __DIR__ . '/partials/header.php';
 include __DIR__ . '/partials/nav.php';
 ?>
 <main>
-    <section class="card">
-        <div class="actions" style="justify-content: space-between;">
-            <div>
-                <h2>Basvuru #<?php echo e($application['id']); ?></h2>
-                <p>Ogrenci: <?php echo e($application['student_first_name'] . ' ' . $application['student_last_name']); ?></p>
-            </div>
-            <div>
-                <span class="badge <?php echo e(status_badge_class($application['status'])); ?>"><?php echo e(APPLICATION_STATUS_LABELS[$application['status']] ?? $application['status']); ?></span>
-                <a class="btn btn-primary" href="download_application.php?id=<?php echo e($application['id']); ?>">Basvuru Belgesi</a>
-            </div>
+    <section class="page-intro">
+        <div>
+            <p class="page-subtitle">Ogrenci: <?php echo e($application['student_first_name'] . ' ' . $application['student_last_name']); ?> · Ogrenci No: <?php echo e($application['student_number']); ?></p>
+            <h1 class="page-title">Basvuru #<?php echo e($application['id']); ?></h1>
+        </div>
+        <div class="page-intro__actions">
+            <span class="badge <?php echo e(status_badge_class($application['status'])); ?>" style="justify-content:center;"><?php echo e(APPLICATION_STATUS_LABELS[$application['status']] ?? $application['status']); ?></span>
+            <a class="btn btn-primary" href="download_application.php?id=<?php echo e($application['id']); ?>">Basvuru Belgesi</a>
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-head">
+            <span>Program Ozetleri</span>
+            <h3>Kaynak ve hedef bilgileri</h3>
         </div>
         <div class="form-row">
             <div>
-                <h3>Kaynak Bilgileri</h3>
+                <h4>Kaynak Program</h4>
                 <p><?php echo e($application['current_school']); ?></p>
                 <p><?php echo e($application['current_faculty']); ?> · <?php echo e($application['current_department']); ?></p>
                 <p>Ogretim: <?php echo e($application['current_instruction']); ?> · <?php echo e($application['completed_semester']); ?>. yariyil</p>
             </div>
             <div>
-                <h3>Hedef Bilgileri</h3>
+                <h4>Hedef Program</h4>
                 <p><?php echo e($application['target_faculty']); ?></p>
                 <p><?php echo e($application['target_department']); ?></p>
                 <p>Ogretim: <?php echo e($application['target_instruction']); ?></p>
             </div>
         </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-head panel-head--mint">
+            <span>Iletisim</span>
+            <h3>Adres ve telefon</h3>
+        </div>
         <div class="form-row">
             <div>
-                <h3>Iletisim</h3>
+                <h4>Adres</h4>
                 <p><?php echo e($application['student_address']); ?></p>
-                <p>Tel: <?php echo e($application['student_phone']); ?></p>
             </div>
             <div>
-                <h3>Ogrenci No</h3>
-                <p><?php echo e($application['student_number']); ?></p>
+                <h4>Telefon</h4>
+                <p><?php echo e($application['student_phone']); ?></p>
             </div>
         </div>
     </section>
 
-    <section class="card" style="margin-top: 2rem;">
-        <h3>Belgeler</h3>
-        <ul>
-            <?php foreach ($documents as $document): ?>
-                <li>
-                    <?php echo e(DOCUMENT_REQUIREMENTS[$document['doc_type']] ?? $document['doc_type']); ?> -
-                    <a href="download_document.php?id=<?php echo e($document['id']); ?>">Indir</a>
-                </li>
-            <?php endforeach; ?>
-            <?php if (empty($documents)): ?>
-                <li>Yuklenmis belge yok.</li>
-            <?php endif; ?>
-        </ul>
+    <section class="card">
+        <h3 class="card-title">Yuklenen Belgeler</h3>
+        <?php if (empty($documents)): ?>
+            <div class="empty-state">Yuklenmis belge bulunmamaktadir.</div>
+        <?php else: ?>
+            <ul class="doc-list">
+                <?php foreach ($documents as $document): ?>
+                    <li>
+                        <strong><?php echo e(DOCUMENT_REQUIREMENTS[$document['doc_type']] ?? $document['doc_type']); ?></strong>
+                        <div style="margin-top:0.35rem;">
+                            <a class="btn btn-ghost" href="download_document.php?id=<?php echo e($document['id']); ?>">Indir</a>
+                            <small style="margin-left:0.5rem;color:var(--slate-500);">Kayit: <?php echo e($document['created_at'] ?? ''); ?></small>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
     </section>
 
-    <section class="card" style="margin-top: 2rem;">
-        <h3>Durum Guncellemeleri</h3>
-        <ul>
-            <?php foreach ($statusLogs as $log): ?>
-                <li>
-                    <strong><?php echo e(APPLICATION_STATUS_LABELS[$log['status']] ?? $log['status']); ?></strong> ·
-                    <?php echo e($log['full_name'] ?? 'Sistem'); ?> ·
-                    <?php echo e($log['created_at']); ?>
-                    <?php if ($log['note']): ?>
-                        <br><small><?php echo e($log['note']); ?></small>
-                    <?php endif; ?>
-                </li>
-            <?php endforeach; ?>
-            <?php if (empty($statusLogs)): ?>
-                <li>Kayit yok.</li>
-            <?php endif; ?>
-        </ul>
+    <section class="card">
+        <h3 class="card-title">Durum Guncellemeleri</h3>
+        <?php if (empty($statusLogs)): ?>
+            <div class="empty-state">Kayit bulunmuyor.</div>
+        <?php else: ?>
+            <ul class="timeline">
+                <?php foreach ($statusLogs as $log): ?>
+                    <li>
+                        <strong><?php echo e(APPLICATION_STATUS_LABELS[$log['status']] ?? $log['status']); ?></strong>
+                        <small> · <?php echo e($log['full_name'] ?? 'Sistem'); ?> · <?php echo e($log['created_at']); ?></small>
+                        <?php if ($log['note']): ?>
+                            <div style="margin-top:0.25rem;color:var(--slate-500);"><?php echo e($log['note']); ?></div>
+                        <?php endif; ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
     </section>
 
     <?php if (user_has_role(ROLE_EXECUTIVE)): ?>
-        <section class="card" style="margin-top: 2rem;">
-        <h3>Ust Yonetici Duzenlemeleri</h3>
-        <form method="post">
-            <input type="hidden" name="mode" value="update_application">
-            <input type="hidden" name="application_id" value="<?php echo e($application['id']); ?>">
-            <div class="form-row">
-                <label>Kayitli Universite
-                    <input type="text" name="current_school" value="<?php echo e($application['current_school']); ?>" required>
-                </label>
-                <label>Fakulte / Yuksekokul
-                    <input type="text" name="current_faculty" value="<?php echo e($application['current_faculty']); ?>" required>
-                </label>
+        <section class="panel">
+            <div class="panel-head panel-head--gold">
+                <span>Ust Yonetim</span>
+                <h3>Basvuruya mudahale edin</h3>
             </div>
-            <div class="form-row">
-                <label>Bolum
-                    <input type="text" name="current_department" value="<?php echo e($application['current_department']); ?>" required>
-                </label>
-                <label>Ogrenci No
-                    <input type="text" name="student_number" value="<?php echo e($application['student_number']); ?>" required>
-                </label>
-            </div>
-            <div class="form-row">
-                <label>Ogretim
-                    <select name="current_instruction">
+            <form method="post">
+                <input type="hidden" name="mode" value="update_application">
+                <input type="hidden" name="application_id" value="<?php echo e($application['id']); ?>">
+                <div class="form-row">
+                    <label>Kayitli Universite
+                        <input type="text" name="current_school" value="<?php echo e($application['current_school']); ?>" required>
+                    </label>
+                    <label>Fakulte / Yuksekokul
+                        <input type="text" name="current_faculty" value="<?php echo e($application['current_faculty']); ?>" required>
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>Bolum
+                        <input type="text" name="current_department" value="<?php echo e($application['current_department']); ?>" required>
+                    </label>
+                    <label>Ogrenci No
+                        <input type="text" name="student_number" value="<?php echo e($application['student_number']); ?>" required>
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>Ogretim
+                        <select name="current_instruction">
+                            <?php foreach (INSTRUCTION_TYPES as $type): ?>
+                                <option value="<?php echo e($type); ?>" <?php echo $application['current_instruction'] === $type ? 'selected' : ''; ?>><?php echo e($type); ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </label>
+                    <label>Tamamlanan Yariyil
+                        <input type="number" name="completed_semester" min="0" max="12" value="<?php echo e($application['completed_semester']); ?>" required>
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>Hedef Fakulte
+                        <input type="text" name="target_faculty" value="<?php echo e($application['target_faculty']); ?>" required>
+                    </label>
+                    <label>Hedef Bolum
+                        <input type="text" name="target_department" value="<?php echo e($application['target_department']); ?>" required>
+                    </label>
+                </div>
+                <label>Hedef Ogretim
+                    <select name="target_instruction">
                         <?php foreach (INSTRUCTION_TYPES as $type): ?>
-                            <option value="<?php echo e($type); ?>" <?php echo $application['current_instruction'] === $type ? 'selected' : ''; ?>><?php echo e($type); ?></option>
+                            <option value="<?php echo e($type); ?>" <?php echo $application['target_instruction'] === $type ? 'selected' : ''; ?>><?php echo e($type); ?></option>
                         <?php endforeach; ?>
                     </select>
                 </label>
-                <label>Tamamlanan Yariyil
-                    <input type="number" name="completed_semester" min="0" max="12" value="<?php echo e($application['completed_semester']); ?>" required>
+                <div class="form-row">
+                    <label>Ad
+                        <input type="text" name="student_first_name" value="<?php echo e($application['student_first_name']); ?>" required>
+                    </label>
+                    <label>Soyad
+                        <input type="text" name="student_last_name" value="<?php echo e($application['student_last_name']); ?>" required>
+                    </label>
+                </div>
+                <label>Adres
+                    <textarea name="student_address" required><?php echo e($application['student_address']); ?></textarea>
                 </label>
-            </div>
-            <div class="form-row">
-                <label>Hedef Fakulte
-                    <input type="text" name="target_faculty" value="<?php echo e($application['target_faculty']); ?>" required>
+                <label>Telefon
+                    <input type="tel" name="student_phone" value="<?php echo e($application['student_phone']); ?>" required>
                 </label>
-                <label>Hedef Bolum
-                    <input type="text" name="target_department" value="<?php echo e($application['target_department']); ?>" required>
-                </label>
-            </div>
-            <label>Hedef Ogretim
-                <select name="target_instruction">
-                    <?php foreach (INSTRUCTION_TYPES as $type): ?>
-                        <option value="<?php echo e($type); ?>" <?php echo $application['target_instruction'] === $type ? 'selected' : ''; ?>><?php echo e($type); ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </label>
-            <div class="form-row">
-                <label>Ad
-                    <input type="text" name="student_first_name" value="<?php echo e($application['student_first_name']); ?>" required>
-                </label>
-                <label>Soyad
-                    <input type="text" name="student_last_name" value="<?php echo e($application['student_last_name']); ?>" required>
-                </label>
-            </div>
-            <label>Adres
-                <textarea name="student_address" required><?php echo e($application['student_address']); ?></textarea>
-            </label>
-            <label>Telefon
-                <input type="tel" name="student_phone" value="<?php echo e($application['student_phone']); ?>" required>
-            </label>
-            <button class="btn btn-primary" type="submit">Bilgileri Guncelle</button>
-        </form>
+                <button class="btn btn-primary" type="submit">Bilgileri Guncelle</button>
+            </form>
 
             <?php if ($application['status'] === APPLICATION_STATUS_APPROVED): ?>
                 <form method="post" style="margin-top: 1rem;">

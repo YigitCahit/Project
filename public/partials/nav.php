@@ -1,42 +1,61 @@
-<?php $user = current_user(); ?>
-<header class="app-header">
-    <div class="brand">
-        <span class="brand-mark">Y</span>
-        <div>
-            <p class="brand-title">Yatay Gecis Basvuru</p>
-            <p class="brand-subtitle">Universite Ici Transfer Modulu</p>
-        </div>
-    </div>
-    <nav class="primary-nav">
-        <a href="index.php">Ana Sayfa</a>
-        <?php if ($user): ?>
-            <a href="dashboard.php">Panel</a>
-            <a href="applications.php">Basvurular</a>
-            <?php if ($user['role'] === ROLE_STUDENT): ?>
-                <a href="create_application.php" class="cta-link">Yeni Basvuru</a>
-            <?php endif; ?>
-            <?php if (user_has_role(ROLE_MANAGER, ROLE_EXECUTIVE)): ?>
-                <a href="manage_users.php">Kullanici Yonetimi</a>
-            <?php endif; ?>
-            <?php if (user_has_role(ROLE_EXECUTIVE)): ?>
-                <a href="executive_tools.php">Ust Yonetim</a>
-            <?php endif; ?>
-        <?php else: ?>
-            <a href="login.php">Giris</a>
-            <a href="register_student.php">Ogrenci Kaydi</a>
-            <a href="register_staff.php">Personel Kaydi</a>
-        <?php endif; ?>
-    </nav>
-    <div class="header-user">
-        <?php if ($user): ?>
-            <div class="user-meta">
-                <span class="user-name"><?php echo e($user['full_name']); ?></span>
-                <span class="user-role"><?php echo e(ROLE_LABELS[$user['role']] ?? ''); ?></span>
+<?php
+$user = current_user();
+$currentPath = basename($_SERVER['PHP_SELF']);
+
+$navLinks = [
+    ['label' => 'Ana Sayfa', 'href' => 'index.php'],
+];
+
+if ($user) {
+    $navLinks[] = ['label' => 'Panel', 'href' => 'dashboard.php'];
+    $navLinks[] = ['label' => 'Basvurular', 'href' => 'applications.php'];
+    if ($user['role'] === ROLE_STUDENT) {
+        $navLinks[] = ['label' => 'Yeni Basvuru', 'href' => 'create_application.php'];
+    }
+    if (user_has_role(ROLE_MANAGER, ROLE_EXECUTIVE)) {
+        $navLinks[] = ['label' => 'Kullanici Yonetimi', 'href' => 'manage_users.php'];
+    }
+    if (user_has_role(ROLE_EXECUTIVE)) {
+        $navLinks[] = ['label' => 'Ust Yonetim', 'href' => 'executive_tools.php'];
+    }
+} else {
+    $navLinks[] = ['label' => 'Ogrenci Kaydi', 'href' => 'register_student.php'];
+    $navLinks[] = ['label' => 'Personel Kaydi', 'href' => 'register_staff.php'];
+    $navLinks[] = ['label' => 'Giris', 'href' => 'login.php'];
+}
+?>
+<header class="top-bar">
+    <div class="page-width top-bar__inner">
+        <a class="brand-link" href="index.php">
+            <span class="brand-mark">YGS</span>
+            <div class="brand-text">
+                <span>Yatay Gecis Sistemi</span>
+                <small>Aksaray Universitesi Modulu</small>
             </div>
-            <a class="ghost-btn" href="logout.php">Cikis</a>
-        <?php else: ?>
-            <a class="ghost-btn" href="login.php">Giris Yap</a>
-        <?php endif; ?>
+        </a>
+        <nav class="nav-links">
+            <?php foreach ($navLinks as $link): ?>
+                <?php $active = $currentPath === basename($link['href']) ? 'is-active' : ''; ?>
+                <a class="<?php echo $active; ?>" href="<?php echo e($link['href']); ?>"><?php echo e($link['label']); ?></a>
+            <?php endforeach; ?>
+        </nav>
+        <div class="user-tools">
+            <?php if ($user): ?>
+                <div class="user-pill">
+                    <strong><?php echo e($user['full_name']); ?></strong>
+                    <span><?php echo e(ROLE_LABELS[$user['role']] ?? ''); ?></span>
+                </div>
+                <?php if ($user['role'] === ROLE_STUDENT): ?>
+                    <a class="btn btn-ghost" href="create_application.php">Yeni Basvuru</a>
+                <?php else: ?>
+                    <a class="btn btn-ghost" href="applications.php">Basvurular</a>
+                <?php endif; ?>
+                <a class="btn btn-primary" href="logout.php">Cikis</a>
+            <?php else: ?>
+                <a class="btn btn-ghost" href="login.php">Giris Yap</a>
+                <a class="btn btn-primary" href="register_student.php">Ogrenci Kaydi</a>
+            <?php endif; ?>
+        </div>
     </div>
 </header>
 <?php include __DIR__ . '/flash.php'; ?>

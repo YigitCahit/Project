@@ -109,9 +109,22 @@ include __DIR__ . '/partials/header.php';
 include __DIR__ . '/partials/nav.php';
 ?>
 <main>
+    <section class="page-intro">
+        <div>
+            <h1 class="page-title">Kullanici Yonetimi</h1>
+            <p class="page-subtitle">Yetkili kullanicilari olusturun, rollerini guncelleyin ve operasyon guvenligini saglayin.</p>
+        </div>
+        <div class="page-intro__actions">
+            <a class="btn btn-ghost" href="dashboard.php">Kontrol Paneli</a>
+        </div>
+    </section>
+
     <?php if ($canAssignExecutive): ?>
-        <section class="card form-card">
-            <h2>Yeni Kullanici Ekle</h2>
+        <section class="panel">
+            <div class="panel-head">
+                <span>Yeni Kayit</span>
+                <h3>Kullanici ekle</h3>
+            </div>
             <form method="post">
                 <input type="hidden" name="mode" value="create">
                 <div class="form-row">
@@ -146,18 +159,19 @@ include __DIR__ . '/partials/nav.php';
                         </select>
                     </label>
                 </div>
-                <div class="form-row">
-                    <label>Sifre
-                        <input type="password" name="password" required>
-                    </label>
-                </div>
+                <label>Sifre
+                    <input type="password" name="password" required>
+                </label>
                 <button class="btn btn-primary" type="submit">Kullanici Olustur</button>
             </form>
         </section>
     <?php endif; ?>
 
-    <section class="table-wrapper">
-        <h2>Kullanici Hesaplari</h2>
+    <section class="table-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:1.25rem 1.5rem 0;">
+            <h2 class="card-title" style="margin:0;">Hesaplar</h2>
+            <span class="card-description">Toplam <?php echo count($users); ?> kayit</span>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -176,9 +190,9 @@ include __DIR__ . '/partials/nav.php';
                         <td><?php echo e($row['email']); ?></td>
                         <td><?php echo e($row['department'] ?: '—'); ?></td>
                         <td><?php echo e(ROLE_LABELS[$row['role']] ?? $row['role']); ?></td>
-                        <td><?php echo e($row['status']); ?></td>
+                        <td><span class="badge badge-muted"><?php echo e($row['status']); ?></span></td>
                         <td>
-                            <form method="post" class="form-inline">
+                            <form method="post" class="actions-inline">
                                 <input type="hidden" name="mode" value="update_user">
                                 <input type="hidden" name="user_id" value="<?php echo e($row['id']); ?>">
                                 <?php if ($canAssignExecutive): ?>

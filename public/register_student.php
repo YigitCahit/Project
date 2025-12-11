@@ -43,8 +43,23 @@ include __DIR__ . '/partials/header.php';
 include __DIR__ . '/partials/nav.php';
 ?>
 <main>
-    <section class="card form-card">
-        <h2>Ogrenci Hesabi Olustur</h2>
+    <section class="page-intro">
+        <div>
+            <h1 class="page-title">Ogrenci hesap olusturma</h1>
+            <p class="page-subtitle">Yatay gecis basvurularini yonetebilmek icin okul email adresinizle hizla hesap olusturun.</p>
+        </div>
+        <div class="page-intro__actions">
+            <a class="btn btn-ghost" href="login.php">Zaten hesabim var</a>
+        </div>
+    </section>
+
+    <div class="info-banner">Ogrenci hesaplari otomatik olarak etkinlestirilir. Personel rolune ihtiyaciniz varsa lutfen personel kayit formunu kullanin.</div>
+
+    <section class="panel">
+        <div class="panel-head">
+            <span>Kayit Formu</span>
+            <h3>Temel bilgiler</h3>
+        </div>
         <form method="post">
             <div class="form-row">
                 <label>Ad Soyad
@@ -54,11 +69,9 @@ include __DIR__ . '/partials/nav.php';
                     <input type="email" name="email" required value="<?php echo e($_POST['email'] ?? ''); ?>">
                 </label>
             </div>
-            <div class="form-row">
-                <label>Telefon
-                    <input type="tel" name="phone" value="<?php echo e($_POST['phone'] ?? ''); ?>">
-                </label>
-            </div>
+            <label>Telefon
+                <input type="tel" name="phone" value="<?php echo e($_POST['phone'] ?? ''); ?>">
+            </label>
             <div class="form-row">
                 <label>Sifre
                     <input type="password" name="password" required>

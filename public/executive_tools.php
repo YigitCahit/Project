@@ -84,22 +84,34 @@ include __DIR__ . '/partials/header.php';
 include __DIR__ . '/partials/nav.php';
 ?>
 <main>
-    <section class="card form-card">
-        <h2>Veri Tabanini Sifirla</h2>
-        <p>
-            Bu islem tum basvurulari, yuklenen belgeleri, durum loglarini ve sizin disinizdaki tum hesaplari siler.
-            Geri alinamaz.
-        </p>
+    <section class="page-intro">
+        <div>
+            <h1 class="page-title">Ust yonetim araclari</h1>
+            <p class="page-subtitle">Tum basvuru verilerini temizlemek ve hesaplari sifirlamak icin bu paneli kullanin. Islemler geri alinamaz.</p>
+        </div>
+        <div class="page-intro__actions">
+            <a class="btn btn-ghost" href="dashboard.php">Panel</a>
+        </div>
+    </section>
+
+    <div class="info-banner">Veri temizleme islemi belgeleri public/uploads klasorunden siler ve tum rollerin kayitlarini sifirlar. Lutfen oncesinde yedek aliniz.</div>
+
+    <section class="panel">
+        <div class="panel-head panel-head--gold">
+            <span>Kritik Islem</span>
+            <h3>Veri tabanini sifirla</h3>
+        </div>
+        <p>Bu eylem tum basvurulari, belgeleri, durum loglarini ve mevcut oturum disindaki hesaplari sistemden kaldirir. Geri alinamaz.</p>
         <ul>
-            <li>Belgeler <code>public/uploads</code> icinden kaldirilir.</li>
-            <li>Basvurular sifirlanir ve bolum baskanlarina ait listeler bosalir.</li>
-            <li>Tum kullanici hesaplari silinir, yalnizca mevcut oturumunuz korunur.</li>
+            <li>Belgeler <code>public/uploads</code> dizininden silinir.</li>
+            <li>Basvuru ve log tablolarinin tamami temizlenir.</li>
+            <li>Yalnizca mevcut hesabiniz kalir.</li>
         </ul>
-        <form method="post" style="margin-top: 1rem;">
-            <label>Onaylamak icin TEMIZLE yaziniz
+        <form method="post" style="margin-top:1rem;">
+            <label>Islemi onaylamak icin TEMIZLE yaziniz
                 <input type="text" name="confirm" placeholder="TEMIZLE" required>
             </label>
-            <button class="btn btn-danger" type="submit" style="margin-top: 1rem;">Veriyi Temizle</button>
+            <button class="btn btn-danger" type="submit" style="margin-top:1rem;">Veriyi Temizle</button>
         </form>
     </section>
 </main>

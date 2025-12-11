@@ -43,8 +43,23 @@ include __DIR__ . '/partials/header.php';
 include __DIR__ . '/partials/nav.php';
 ?>
 <main>
-    <section class="card form-card">
-        <h2>Personel Hesabi Talebi</h2>
+    <section class="page-intro">
+        <div>
+            <h1 class="page-title">Personel hesabi talep edin</h1>
+            <p class="page-subtitle">Memur veya bolum baskani rollerine erisim icin kurumsal email adresinizle kayit talebi olusturun. Kayitlar yonetim onayi sonrasinda etkinlesir.</p>
+        </div>
+        <div class="page-intro__actions">
+            <a class="btn btn-ghost" href="login.php">Giris sayfasina don</a>
+        </div>
+    </section>
+
+    <div class="info-banner">Personel hesaplari otomatik olarak bekleme durumuna alinir ve yonetici tarafindan aktiflestirilir.</div>
+
+    <section class="panel">
+        <div class="panel-head">
+            <span>Basvuru Formu</span>
+            <h3>Kimlik ve rol bilgileri</h3>
+        </div>
         <form method="post">
             <div class="form-row">
                 <label>Ad Soyad

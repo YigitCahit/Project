@@ -63,11 +63,27 @@ include __DIR__ . '/partials/header.php';
 include __DIR__ . '/partials/nav.php';
 ?>
 <main>
-    <section class="card form-card">
-        <h2>Yatay Gecis Basvurusu</h2>
-        <form method="post" enctype="multipart/form-data">
+    <section class="page-intro">
+        <div>
+            <h1 class="page-title">Yatay gecis basvuru formu</h1>
+            <p class="page-subtitle">Kayitli oldugunuz program, hedef bolum ve zorunlu belgeleri eksiksiz doldurduktan sonra basvurunuzu iletin.</p>
+        </div>
+        <div class="page-intro__actions">
+            <a class="btn btn-ghost" href="applications.php">Basvurularim</a>
+        </div>
+    </section>
+
+    <div class="info-banner">"Aksaray Universitesi Onlisans ve Lisans Duzeyindeki Programlar Arasinda Yatay Gecis Esaslarina Iliskin Yonerge" kapsaminda kurum ici basvurular icin bu formu kullanin.</div>
+
+    <form method="post" enctype="multipart/form-data" class="form-stack">
+        <section class="panel">
+            <div class="panel-head">
+                <span>Halen Kayitli Oldugum Program</span>
+                <h3>Birim ve ogrenci bilgileriniz</h3>
+                <p class="card-description">Kayitli oldugunuz universiteyi ve mevcut ogrenci bilgilerinizi giriniz.</p>
+            </div>
             <div class="form-row">
-                <label>Kayitli Olunan Universite / Birim
+                <label>Universite / Birim
                     <input type="text" name="current_school" required>
                 </label>
                 <label>Fakulte / Yuksekokul
@@ -75,7 +91,7 @@ include __DIR__ . '/partials/nav.php';
                 </label>
             </div>
             <div class="form-row">
-                <label>Bolum
+                <label>Bolum / Program
                     <input type="text" name="current_department" required>
                 </label>
                 <label>Ogrenci No
@@ -94,12 +110,19 @@ include __DIR__ . '/partials/nav.php';
                     <input type="number" name="completed_semester" min="0" max="12" required>
                 </label>
             </div>
-            <hr>
+        </section>
+
+        <section class="panel">
+            <div class="panel-head panel-head--green">
+                <span>Hedef Program</span>
+                <h3>Kurum ici gecis yapmak istedigim bolum</h3>
+                <p class="card-description">Gecmek istedigini fakulte ve bolume dair bilgileri doldurun.</p>
+            </div>
             <div class="form-row">
                 <label>Hedef Fakulte / Yuksekokul
                     <input type="text" name="target_faculty" required>
                 </label>
-                <label>Hedef Bolum
+                <label>Hedef Bolum / Program
                     <input type="text" name="target_department" required>
                 </label>
             </div>
@@ -110,7 +133,14 @@ include __DIR__ . '/partials/nav.php';
                     <?php endforeach; ?>
                 </select>
             </label>
-            <hr>
+        </section>
+
+        <section class="panel">
+            <div class="panel-head panel-head--mint">
+                <span>Kisisel Bilgiler</span>
+                <h3>Iletisim ve adres</h3>
+                <p class="card-description">Basvuru boyunca ileti alabilmek icin guncel bilgilerinizi yazin.</p>
+            </div>
             <div class="form-row">
                 <label>Ad
                     <input type="text" name="student_first_name" required>
@@ -122,19 +152,36 @@ include __DIR__ . '/partials/nav.php';
             <label>Adres
                 <textarea name="student_address" required></textarea>
             </label>
-            <label>Iletisim Telefonu
+            <label>Telefon
                 <input type="tel" name="student_phone" required>
             </label>
-            <hr>
-            <h3>Belgeler</h3>
-            <p>Zorunlu belgelerinizi PDF veya JPG olarak yukleyin.</p>
-            <?php foreach (DOCUMENT_REQUIREMENTS as $key => $label): ?>
-                <label><?php echo e($label); ?>
-                    <input type="file" name="<?php echo e($key); ?>" accept=".pdf,.jpg,.jpeg,.png">
-                </label>
-            <?php endforeach; ?>
+        </section>
+
+        <section class="panel">
+            <div class="panel-head panel-head--gold">
+                <span>Istenen Belgeler</span>
+                <h3>Zorunlu dosya yuklemeleri</h3>
+            </div>
+            <div class="info-banner">Izin verilen dosya turleri: PDF, JPG, PNG. Maksimum boyut 5MB.</div>
+            <div class="form-row">
+                <?php foreach (DOCUMENT_REQUIREMENTS as $key => $label): ?>
+                    <label><?php echo e($label); ?>
+                        <input type="file" name="<?php echo e($key); ?>" accept=".pdf,.jpg,.jpeg,.png">
+                    </label>
+                <?php endforeach; ?>
+            </div>
+        </section>
+
+        <label class="consent-box">
+            <input type="checkbox" required>
+            <span>Basvuru bilgilerimin dogrulugunu beyan ederim ve sartlara uymayan durumlarda basvurunun iptal edilebilecegini kabul ederim.</span>
+        </label>
+
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;">
+            <a class="btn btn-ghost" href="dashboard.php"><- Iptal</a>
+            <button class="btn btn-secondary" type="button" disabled>Taslak Olarak Kaydet</button>
             <button type="submit" class="btn btn-primary">Basvuruyu Gonder</button>
-        </form>
-    </section>
+        </div>
+    </form>
 </main>
 <?php include __DIR__ . '/partials/footer.php'; ?>
