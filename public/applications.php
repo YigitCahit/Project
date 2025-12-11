@@ -74,8 +74,13 @@ $pageTitle = 'Basvurular';
 include __DIR__ . '/partials/header.php';
 include __DIR__ . '/partials/nav.php';
 
+$allowedStatuses = ['all', APPLICATION_STATUS_PENDING_CLERK, APPLICATION_STATUS_APPROVED, APPLICATION_STATUS_REJECTED, APPLICATION_STATUS_DRAFT];
 $selectedStatus = $_GET['status'] ?? 'all';
-if ($selectedStatus !== 'all' && $selectedStatus !== '') {
+if (!in_array($selectedStatus, $allowedStatuses, true)) {
+    $selectedStatus = 'all';
+}
+
+if ($selectedStatus !== 'all') {
     $applications = array_values(array_filter($applications, fn($app) => $app['status'] === $selectedStatus));
 }
 

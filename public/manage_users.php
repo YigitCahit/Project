@@ -188,7 +188,7 @@ include __DIR__ . '/partials/nav.php';
                     <tr>
                         <td><?php echo e($row['full_name']); ?></td>
                         <td><?php echo e($row['email']); ?></td>
-                        <td><?php echo e($row['department'] ?: '—'); ?></td>
+                        <td><?php echo e($row['department'] ?: '-'); ?></td>
                         <td><?php echo e(ROLE_LABELS[$row['role']] ?? $row['role']); ?></td>
                         <td><span class="badge badge-muted"><?php echo e($row['status']); ?></span></td>
                         <td>

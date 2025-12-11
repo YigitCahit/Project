@@ -164,10 +164,13 @@ include __DIR__ . '/partials/nav.php';
         </section>
     <?php else: ?>
         <?php
-        $pendingCount = $user['role'] === ROLE_CHAIR
-            ? application_count(APPLICATION_STATUS_APPROVED, $user['department'])
-            : application_count(APPLICATION_STATUS_PENDING_CLERK);
-        $inReviewCount = application_count(APPLICATION_STATUS_PENDING_CLERK);
+        if ($user['role'] === ROLE_CHAIR) {
+            $pendingCount = application_count(APPLICATION_STATUS_APPROVED, $user['department']);
+            $inReviewCount = $pendingCount;
+        } else {
+            $pendingCount = application_count(APPLICATION_STATUS_PENDING_CLERK);
+            $inReviewCount = application_count(APPLICATION_STATUS_APPROVED);
+        }
         $approvedTotal = application_count(APPLICATION_STATUS_APPROVED);
         ?>
         <section class="stat-grid">

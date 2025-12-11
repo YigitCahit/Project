@@ -124,7 +124,7 @@ include __DIR__ . '/partials/nav.php';
 <main>
     <section class="page-intro">
         <div>
-            <p class="page-subtitle">Ogrenci: <?php echo e($application['student_first_name'] . ' ' . $application['student_last_name']); ?> · Ogrenci No: <?php echo e($application['student_number']); ?></p>
+            <p class="page-subtitle">Ogrenci: <?php echo e($application['student_first_name'] . ' ' . $application['student_last_name']); ?> - Ogrenci No: <?php echo e($application['student_number']); ?></p>
             <h1 class="page-title">Basvuru #<?php echo e($application['id']); ?></h1>
         </div>
         <div class="page-intro__actions">
@@ -142,8 +142,8 @@ include __DIR__ . '/partials/nav.php';
             <div>
                 <h4>Kaynak Program</h4>
                 <p><?php echo e($application['current_school']); ?></p>
-                <p><?php echo e($application['current_faculty']); ?> · <?php echo e($application['current_department']); ?></p>
-                <p>Ogretim: <?php echo e($application['current_instruction']); ?> · <?php echo e($application['completed_semester']); ?>. yariyil</p>
+                <p><?php echo e($application['current_faculty']); ?> - <?php echo e($application['current_department']); ?></p>
+                <p>Ogretim: <?php echo e($application['current_instruction']); ?> - <?php echo e($application['completed_semester']); ?>. yariyil</p>
             </div>
             <div>
                 <h4>Hedef Program</h4>
@@ -199,7 +199,7 @@ include __DIR__ . '/partials/nav.php';
                 <?php foreach ($statusLogs as $log): ?>
                     <li>
                         <strong><?php echo e(APPLICATION_STATUS_LABELS[$log['status']] ?? $log['status']); ?></strong>
-                        <small> · <?php echo e($log['full_name'] ?? 'Sistem'); ?> · <?php echo e($log['created_at']); ?></small>
+                        <small> - <?php echo e($log['full_name'] ?? 'Sistem'); ?> - <?php echo e($log['created_at']); ?></small>
                         <?php if ($log['note']): ?>
                             <div style="margin-top:0.25rem;color:var(--slate-500);"><?php echo e($log['note']); ?></div>
                         <?php endif; ?>

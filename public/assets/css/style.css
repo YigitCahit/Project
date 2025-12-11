@@ -343,6 +343,12 @@ textarea {
     background: var(--surface-alt);
 }
 
+input[type="checkbox"] {
+    width: auto;
+    padding: 0;
+    margin-top: 0.25rem;
+}
+
 textarea {
     resize: vertical;
     min-height: 140px;
@@ -362,6 +368,7 @@ textarea {
 .table-card table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 0.5rem;
 }
 
 table thead {

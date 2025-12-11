@@ -73,7 +73,7 @@ include __DIR__ . '/partials/nav.php';
         </div>
     </section>
 
-    <div class="info-banner">"Aksaray Universitesi Onlisans ve Lisans Duzeyindeki Programlar Arasinda Yatay Gecis Esaslarina Iliskin Yonerge" kapsaminda kurum ici basvurular icin bu formu kullanin.</div>
+    <div class="info-banner">Aksaray Universitesi Onlisans ve Lisans Duzeyindeki Programlar Arasinda Yatay Gecis Esaslarina Iliskin Yonerge kapsaminda kurum ici basvurular icin bu formu kullanin.</div>
 
     <form method="post" enctype="multipart/form-data" class="form-stack">
         <section class="panel">
