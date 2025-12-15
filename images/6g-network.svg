@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <rect width="400" height="250" fill="#111113"/>
+  <!-- Signal waves -->
+  <g stroke="#8b5cf6" fill="none" opacity="0.3">
+    <circle cx="200" cy="125" r="30" stroke-width="2"/>
+    <circle cx="200" cy="125" r="50" stroke-width="1.5"/>
+    <circle cx="200" cy="125" r="70" stroke-width="1"/>
+    <circle cx="200" cy="125" r="90" stroke-width="0.5"/>
+  </g>
+  <!-- Central tower -->
+  <rect x="190" y="100" width="20" height="50" fill="#1a1a1d" stroke="#8b5cf6" stroke-width="2"/>
+  <polygon points="200,80 215,100 185,100" fill="#8b5cf6"/>
+  <!-- 6G text -->
+  <text x="200" y="135" text-anchor="middle" fill="#c084fc" font-family="system-ui" font-weight="700" font-size="14">6G</text>
+  <!-- Holographic elements -->
+  <g opacity="0.6">
+    <rect x="60" y="80" width="40" height="30" rx="4" fill="none" stroke="#c084fc" stroke-width="1" stroke-dasharray="3,3"/>
+    <rect x="300" y="80" width="40" height="30" rx="4" fill="none" stroke="#c084fc" stroke-width="1" stroke-dasharray="3,3"/>
+    <rect x="60" y="140" width="40" height="30" rx="4" fill="none" stroke="#c084fc" stroke-width="1" stroke-dasharray="3,3"/>
+    <rect x="300" y="140" width="40" height="30" rx="4" fill="none" stroke="#c084fc" stroke-width="1" stroke-dasharray="3,3"/>
+  </g>
+  <!-- Connection lines -->
+  <g stroke="#8b5cf6" stroke-width="1" opacity="0.4">
+    <line x1="100" y1="95" x2="185" y2="120"/>
+    <line x1="300" y1="95" x2="215" y2="120"/>
+    <line x1="100" y1="155" x2="185" y2="130"/>
+    <line x1="300" y1="155" x2="215" y2="130"/>
+  </g>
+  <!-- Speed indicator -->
+  <text x="200" y="200" text-anchor="middle" fill="#71717a" font-family="monospace" font-size="10">1 Tbps • Terahertz Waves</text>
+  <!-- Glow -->
+  <circle cx="200" cy="125" r="60" fill="#8b5cf6" opacity="0.08" filter="blur(30px)"/>
+</svg>

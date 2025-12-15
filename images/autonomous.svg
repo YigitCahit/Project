@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <rect width="400" height="250" fill="#111113"/>
+  <!-- Road -->
+  <g>
+    <polygon points="100,250 300,250 250,150 150,150" fill="#27272a"/>
+    <line x1="200" y1="250" x2="200" y2="150" stroke="#fef08a" stroke-width="2" stroke-dasharray="10,10"/>
+  </g>
+  <!-- Autonomous vehicle (top view) -->
+  <g transform="translate(160, 160)">
+    <rect x="0" y="0" width="80" height="50" rx="10" fill="#1a1a1d" stroke="#8b5cf6" stroke-width="2"/>
+    <!-- Windshield -->
+    <rect x="10" y="5" width="60" height="15" rx="3" fill="#27272a"/>
+    <!-- Sensor dome -->
+    <circle cx="40" cy="25" r="8" fill="#8b5cf6" opacity="0.6"/>
+    <!-- Wheels -->
+    <rect x="-5" y="5" width="8" height="15" rx="2" fill="#27272a"/>
+    <rect x="-5" y="30" width="8" height="15" rx="2" fill="#27272a"/>
+    <rect x="77" y="5" width="8" height="15" rx="2" fill="#27272a"/>
+    <rect x="77" y="30" width="8" height="15" rx="2" fill="#27272a"/>
+  </g>
+  <!-- Sensor detection rays -->
+  <g stroke="#8b5cf6" stroke-width="1" opacity="0.4">
+    <line x1="200" y1="185" x2="100" y2="120"/>
+    <line x1="200" y1="185" x2="150" y2="100"/>
+    <line x1="200" y1="185" x2="200" y2="90"/>
+    <line x1="200" y1="185" x2="250" y2="100"/>
+    <line x1="200" y1="185" x2="300" y2="120"/>
+  </g>
+  <!-- Detection points -->
+  <g fill="#c084fc" opacity="0.6">
+    <circle cx="100" cy="120" r="4"/>
+    <circle cx="150" cy="100" r="4"/>
+    <circle cx="200" cy="90" r="4"/>
+    <circle cx="250" cy="100" r="4"/>
+    <circle cx="300" cy="120" r="4"/>
+  </g>
+  <!-- Object detection boxes -->
+  <rect x="270" y="100" width="40" height="30" rx="3" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="290" y="95" text-anchor="middle" fill="#22c55e" font-family="system-ui" font-size="8">Person</text>
+  <rect x="90" y="110" width="30" height="20" rx="3" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="105" y="105" text-anchor="middle" fill="#3b82f6" font-family="system-ui" font-size="8">Sign</text>
+  <!-- Level indicator -->
+  <g transform="translate(30, 30)">
+    <rect x="0" y="0" width="80" height="25" rx="4" fill="#1a1a1d" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="40" y="17" text-anchor="middle" fill="#8b5cf6" font-family="system-ui" font-size="11" font-weight="600">Level 5</text>
+  </g>
+  <!-- Glow -->
+  <circle cx="200" cy="180" r="60" fill="#8b5cf6" opacity="0.08" filter="blur(30px)"/>
+</svg>

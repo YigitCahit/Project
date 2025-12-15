@@ -1,0 +1,31 @@
+# MC.Yigit Robots.txt
+# https://mcyigit.net/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mcyigit.net/sitemap.xml
+
+# Crawl-delay (isteğe bağlı - bazı botlar için)
+Crawl-delay: 1
+
+# Disallow nothing - tüm içerik indexlenebilir
+# Eğer gelecekte admin paneli veya özel alanlar eklenirse:
+# Disallow: /admin/
+# Disallow: /private/
+
+# Googlebot için özel kurallar
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bingbot için özel kurallar  
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Yandex için özel kurallar
+User-agent: Yandex
+Allow: /
+Crawl-delay: 2

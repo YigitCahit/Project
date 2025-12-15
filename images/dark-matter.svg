@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <rect width="400" height="250" fill="#111113"/>
+  <!-- Galaxy web -->
+  <g stroke="#8b5cf6" stroke-width="0.5" opacity="0.3">
+    <path d="M50 125 Q125 80 200 125 Q275 170 350 125" fill="none"/>
+    <path d="M50 100 Q125 150 200 100 Q275 50 350 100" fill="none"/>
+    <path d="M100 50 Q200 125 300 50" fill="none"/>
+    <path d="M100 200 Q200 125 300 200" fill="none"/>
+  </g>
+  <!-- Dark matter nodes -->
+  <g fill="#8b5cf6" opacity="0.6">
+    <circle cx="100" cy="80" r="8"/>
+    <circle cx="200" cy="60" r="10"/>
+    <circle cx="300" cy="90" r="7"/>
+    <circle cx="150" cy="150" r="9"/>
+    <circle cx="250" cy="140" r="8"/>
+    <circle cx="80" cy="180" r="6"/>
+    <circle cx="320" cy="170" r="7"/>
+    <circle cx="200" cy="200" r="8"/>
+  </g>
+  <!-- Connection filaments -->
+  <g stroke="#c084fc" stroke-width="1" opacity="0.4">
+    <line x1="100" y1="80" x2="200" y2="60"/>
+    <line x1="200" y1="60" x2="300" y2="90"/>
+    <line x1="100" y1="80" x2="150" y2="150"/>
+    <line x1="200" y1="60" x2="250" y2="140"/>
+    <line x1="150" y1="150" x2="250" y2="140"/>
+    <line x1="150" y1="150" x2="80" y2="180"/>
+    <line x1="250" y1="140" x2="320" y2="170"/>
+    <line x1="150" y1="150" x2="200" y2="200"/>
+    <line x1="250" y1="140" x2="200" y2="200"/>
+  </g>
+  <!-- Question mark (mystery) -->
+  <text x="200" y="135" text-anchor="middle" fill="#52525b" font-family="system-ui" font-size="40" opacity="0.3">?</text>
+  <!-- Label -->
+  <text x="200" y="235" text-anchor="middle" fill="#52525b" font-family="system-ui" font-size="11">27% of the Universe</text>
+  <!-- Glow -->
+  <circle cx="200" cy="125" r="100" fill="#8b5cf6" opacity="0.05" filter="blur(50px)"/>
+</svg>

@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Ana Sayfa -->
+    <url>
+        <loc>https://mcyigit.net/</loc>
+        <lastmod>2025-12-15</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Hakkında Sayfası -->
+    <url>
+        <loc>https://mcyigit.net/hakkinda.html</loc>
+        <lastmod>2025-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- Gizlilik Politikası -->
+    <url>
+        <loc>https://mcyigit.net/gizlilik.html</loc>
+        <lastmod>2025-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+    <!-- Kullanım Şartları -->
+    <url>
+        <loc>https://mcyigit.net/kullanim-sartlari.html</loc>
+        <lastmod>2025-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+    <!-- ==================== TEKNOLOJİ YAZILARI ==================== -->
+    
+    <!-- Kuantum Bilgisayarlar 2025 -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/kuantum-bilgisayarlar-2025.html</loc>
+        <lastmod>2025-12-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/kuantum-bilgisayar.svg</image:loc>
+            <image:title>Kuantum Bilgisayar 2025</image:title>
+            <image:caption>Kuantum bilgisayar işlemcisi ve süperiletken qubit yapısı</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Blockchain Geleceği -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/blockchain-gelecegi.html</loc>
+        <lastmod>2025-12-03</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/blockchain.svg</image:loc>
+            <image:title>Blockchain Teknolojisi</image:title>
+            <image:caption>Blockchain ve dağıtık defter teknolojisi görseli</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- 6G Teknolojisi -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/6g-teknolojisi.html</loc>
+        <lastmod>2025-11-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/6g-network.svg</image:loc>
+            <image:title>6G Teknolojisi</image:title>
+            <image:caption>6G kablosuz iletişim ve holografik veri aktarımı</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Beyin-Bilgisayar Arayüzleri -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/norolojik-arayuzler.html</loc>
+        <lastmod>2025-11-25</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/brain-interface.svg</image:loc>
+            <image:title>Beyin-Bilgisayar Arayüzleri</image:title>
+            <image:caption>Nöral arayüz ve beyin sinyalleri görseli</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Metaverse Ekonomisi -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/metaverse-ekonomisi.html</loc>
+        <lastmod>2025-11-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/metaverse.svg</image:loc>
+            <image:title>Metaverse Ekonomisi</image:title>
+            <image:caption>Sanal gerçeklik dünyası ve dijital avatarlar</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- ==================== BİLİM YAZILARI ==================== -->
+    
+    <!-- Karanlık Madde -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/karanlik-madde-kesfi.html</loc>
+        <lastmod>2025-12-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/dark-matter.svg</image:loc>
+            <image:title>Karanlık Madde</image:title>
+            <image:caption>Galaksileri bir arada tutan karanlık madde ağı</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- CRISPR Gen Düzenleme -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/crispr-gen-duzenleme.html</loc>
+        <lastmod>2025-11-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/crispr.svg</image:loc>
+            <image:title>CRISPR Gen Düzenleme</image:title>
+            <image:caption>CRISPR-Cas9 ve DNA sarmalı illüstrasyonu</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Nükleer Füzyon -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/fuzyon-enerjisi.html</loc>
+        <lastmod>2025-11-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/fusion.svg</image:loc>
+            <image:title>Nükleer Füzyon</image:title>
+            <image:caption>Füzyon reaktörü ve plazma görseli</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Paralel Evrenler -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/paralel-evrenler.html</loc>
+        <lastmod>2025-11-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/multiverse.svg</image:loc>
+            <image:title>Paralel Evrenler</image:title>
+            <image:caption>Çoklu evren teorisi soyut görseli</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- ==================== UZAY YAZILARI ==================== -->
+    
+    <!-- Kara Delikler -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/karadelikler-sirri.html</loc>
+        <lastmod>2025-12-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/karadelik.svg</image:loc>
+            <image:title>Kara Delikler</image:title>
+            <image:caption>Kara delik ve ışık halkası görselleştirmesi</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Mars Kolonizasyonu -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/mars-kolonizasyonu.html</loc>
+        <lastmod>2025-11-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/mars-colony.svg</image:loc>
+            <image:title>Mars Kolonizasyonu</image:title>
+            <image:caption>Mars yüzeyinde insan kolonisi konsepti</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- James Webb Teleskobu -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/james-webb-kesifler.html</loc>
+        <lastmod>2025-11-26</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/james-webb.svg</image:loc>
+            <image:title>James Webb Teleskobu</image:title>
+            <image:caption>James Webb Uzay Teleskobu görseli</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Dünya Dışı Yaşam -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/dunya-disi-yasam.html</loc>
+        <lastmod>2025-11-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/alien-life.svg</image:loc>
+            <image:title>Dünya Dışı Yaşam</image:title>
+            <image:caption>Yaşanabilir gezegen atmosferi ve biyoimza arayışı</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Uzay Madenciliği -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/uzay-madenciligi.html</loc>
+        <lastmod>2025-11-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/space-mining.svg</image:loc>
+            <image:title>Uzay Madenciliği</image:title>
+            <image:caption>Asteroit madenciliği uzay aracı görseli</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- ==================== YAPAY ZEKA YAZILARI ==================== -->
+    
+    <!-- Yapay Zeka ve Bilinç -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/yapay-zeka-bilinc.html</loc>
+        <lastmod>2025-12-08</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/ai-bilinc.svg</image:loc>
+            <image:title>Yapay Zeka ve Bilinç</image:title>
+            <image:caption>Yapay sinir ağları ve insan beyni bağlantısı</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- AGI - Genel Yapay Zeka -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/agi-genel-yapay-zeka.html</loc>
+        <lastmod>2025-11-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/agi.svg</image:loc>
+            <image:title>Genel Yapay Zeka</image:title>
+            <image:caption>AGI ve insan seviyesi akıl yürütme konsepti</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Büyük Dil Modelleri -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/llm-dil-modelleri.html</loc>
+        <lastmod>2025-11-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/llm.svg</image:loc>
+            <image:title>Büyük Dil Modelleri</image:title>
+            <image:caption>LLM nöral ağ yapısı ve metin üretimi</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Yapay Zeka ve Sanat -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/yapay-zeka-sanatta.html</loc>
+        <lastmod>2025-11-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/ai-art.svg</image:loc>
+            <image:title>Yapay Zeka ve Sanat</image:title>
+            <image:caption>AI tarafından üretilen dijital sanat eseri</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Otonom Araçlar -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/otonom-araclar.html</loc>
+        <lastmod>2025-11-17</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/autonomous.svg</image:loc>
+            <image:title>Otonom Araçlar</image:title>
+            <image:caption>Otonom araç sensörleri ve AI karar verme sistemi</image:caption>
+        </image:image>
+    </url>
+    
+</urlset>

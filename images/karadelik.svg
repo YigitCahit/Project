@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#111113"/>
+  <defs>
+    <radialGradient id="hole" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000"/>
+      <stop offset="70%" stop-color="#0a0a0b"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.3"/>
+    </radialGradient>
+  </defs>
+  <!-- Stars -->
+  <g fill="#fff" opacity="0.3">
+    <circle cx="50" cy="50" r="1"/>
+    <circle cx="350" cy="80" r="1"/>
+    <circle cx="100" cy="250" r="1"/>
+    <circle cx="320" cy="220" r="1"/>
+    <circle cx="80" cy="150" r="1"/>
+    <circle cx="340" cy="150" r="1"/>
+    <circle cx="150" cy="40" r="1.5"/>
+    <circle cx="280" cy="260" r="1"/>
+  </g>
+  <!-- Black hole -->
+  <circle cx="200" cy="150" r="60" fill="url(#hole)"/>
+  <!-- Accretion disk -->
+  <ellipse cx="200" cy="150" rx="120" ry="30" fill="none" stroke="#8b5cf6" stroke-width="3" opacity="0.7"/>
+  <ellipse cx="200" cy="150" rx="100" ry="25" fill="none" stroke="#c084fc" stroke-width="2" opacity="0.5"/>
+  <ellipse cx="200" cy="150" rx="80" ry="20" fill="none" stroke="#a78bfa" stroke-width="1.5" opacity="0.3"/>
+  <!-- Light bending effect -->
+  <path d="M80 150 Q120 100 150 150 Q180 200 200 150" stroke="#8b5cf6" stroke-width="1" opacity="0.4" fill="none"/>
+  <path d="M320 150 Q280 100 250 150 Q220 200 200 150" stroke="#8b5cf6" stroke-width="1" opacity="0.4" fill="none"/>
+  <!-- Glow -->
+  <circle cx="200" cy="150" r="100" fill="#8b5cf6" opacity="0.1" filter="blur(40px)"/>
+  <text x="200" y="270" text-anchor="middle" fill="#52525b" font-family="system-ui" font-size="12">Event Horizon</text>
+</svg>

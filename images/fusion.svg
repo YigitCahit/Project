@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <rect width="400" height="250" fill="#111113"/>
+  <defs>
+    <radialGradient id="plasma" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#0a0a0b"/>
+    </radialGradient>
+  </defs>
+  <!-- Tokamak cross-section -->
+  <ellipse cx="200" cy="125" rx="120" ry="80" fill="none" stroke="#27272a" stroke-width="8"/>
+  <ellipse cx="200" cy="125" rx="100" ry="65" fill="none" stroke="#1a1a1d" stroke-width="4"/>
+  <!-- Plasma core -->
+  <ellipse cx="200" cy="125" rx="60" ry="40" fill="url(#plasma)" opacity="0.8"/>
+  <!-- Magnetic field lines -->
+  <g stroke="#8b5cf6" stroke-width="1" fill="none" opacity="0.4">
+    <ellipse cx="200" cy="125" rx="80" ry="55"/>
+    <ellipse cx="200" cy="125" rx="90" ry="60"/>
+    <ellipse cx="200" cy="125" rx="70" ry="48"/>
+  </g>
+  <!-- Energy output arrows -->
+  <g stroke="#c084fc" stroke-width="2" opacity="0.7">
+    <line x1="320" y1="125" x2="360" y2="125"/>
+    <polygon points="355,120 365,125 355,130" fill="#c084fc"/>
+  </g>
+  <!-- Temperature indicator -->
+  <text x="200" y="130" text-anchor="middle" fill="#fafafa" font-family="system-ui" font-size="12" font-weight="600">100M °C</text>
+  <!-- Labels -->
+  <text x="200" y="220" text-anchor="middle" fill="#52525b" font-family="system-ui" font-size="11">Nuclear Fusion Reactor</text>
+  <!-- Energy symbol -->
+  <text x="370" y="130" fill="#c084fc" font-family="system-ui" font-size="16">⚡</text>
+  <!-- Glow -->
+  <circle cx="200" cy="125" r="60" fill="#8b5cf6" opacity="0.15" filter="blur(30px)"/>
+</svg>
