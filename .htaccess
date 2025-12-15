@@ -1,0 +1,29 @@
+# Varsayılan ana sayfa
+DirectoryIndex index.html
+
+# 404 hata sayfası
+ErrorDocument 404 /404.html
+
+# HTTPS yönlendirmesi
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Güvenlik başlıkları
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+</IfModule>
+
+# MIME türü koruması
+AddType text/html .html
+AddType text/css .css
+AddType application/javascript .js
+AddType image/svg+xml .svg
+AddType image/webp .webp
+
+# Dizin listelemeyi kapat
+Options -Indexes
