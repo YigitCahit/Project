@@ -271,6 +271,7 @@
 }
 
 .toc ol {
+    list-style: none;
     counter-reset: toc-counter;
     padding-left: 0;
     margin-bottom: 0;
