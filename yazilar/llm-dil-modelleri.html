@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Büyük Dil Modelleri: GPT'den Ötesi ve Yapay Zekanın Dil Devrimi | MC.Yigit</title>
+    <meta name="title" content="Büyük Dil Modelleri: GPT'den Ötesi ve Yapay Zekanın Dil Devrimi | MC.Yigit">
+    <meta name="description" content="LLM'ler nasıl çalışır? Transformer mimarisi, GPT, Claude, Gemini, LLaMA karşılaştırması. Büyük dil modelleri dünyayı nasıl değiştiriyor?">
+    <meta name="keywords" content="LLM, büyük dil modeli, GPT, ChatGPT, Claude, Gemini, LLaMA, transformer, NLP, doğal dil işleme, yapay zeka">
+    <meta name="author" content="MC.Yigit">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://mcyigit.net/yazilar/llm-dil-modelleri.html">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mcyigit.net/yazilar/llm-dil-modelleri.html">
+    <meta property="og:title" content="Büyük Dil Modelleri: GPT'den Ötesi ve Yapay Zekanın Dil Devrimi">
+    <meta property="og:description" content="LLM'ler nasıl çalışır? Transformer'dan GPT-4'e yapay zekanın dil devrimi.">
+    <meta property="og:image" content="https://mcyigit.net/images/llm.svg">
+    <meta property="article:published_time" content="2025-12-11T10:00:00+03:00">
+    <meta property="article:section" content="Yapay Zeka">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Büyük Dil Modelleri: Dil Devrimi">
+    <meta name="twitter:description" content="LLM'ler dünyayı nasıl değiştiriyor?">
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../article.css">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Büyük Dil Modelleri: GPT'den Ötesi ve Yapay Zekanın Dil Devrimi",
+        "description": "LLM'ler nasıl çalışır? Transformer'dan GPT-4'e yapay zekanın dil devrimi.",
+        "image": "https://mcyigit.net/images/llm.svg",
+        "datePublished": "2025-12-11T10:00:00+03:00",
+        "author": {"@type": "Organization", "name": "MC.Yigit"},
+        "publisher": {"@type": "Organization", "name": "MC.Yigit"}
+    }
+    </script>
+</head>
+<body>
+    <header class="site-header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Ana navigasyon">
+            <a href="/" class="logo" aria-label="MC.Yigit Ana Sayfa">
+                <span class="logo-text">MC<span class="logo-dot">.</span>Yigit</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/#teknoloji" class="nav-link">Teknoloji</a></li>
+                <li><a href="/#bilim" class="nav-link">Bilim</a></li>
+                <li><a href="/#uzay" class="nav-link">Uzay</a></li>
+                <li><a href="/#yapay-zeka" class="nav-link">Yapay Zeka</a></li>
+                <li><a href="/#iletisim" class="nav-link">İletişim</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menüyü aç" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol>
+                    <li><a href="/">Ana Sayfa</a></li>
+                    <li><a href="/#yapay-zeka">Yapay Zeka</a></li>
+                    <li aria-current="page">Büyük Dil Modelleri</li>
+                </ol>
+            </div>
+        </nav>
+
+        <article class="article" itemscope itemtype="https://schema.org/Article">
+            <header class="article-header">
+                <div class="container">
+                    <div class="article-meta">
+                        <span class="category">Yapay Zeka</span>
+                        <time datetime="2025-12-11" itemprop="datePublished">11 Aralık 2025</time>
+                        <span class="reading-time">17 dakika okuma</span>
+                    </div>
+                    <h1 itemprop="headline">Büyük Dil Modelleri: GPT'den Ötesi ve Yapay Zekanın Dil Devrimi</h1>
+                    <p class="article-lead" itemprop="description">2022'de ChatGPT piyasaya çıktığında, milyonlarca insan ilk kez bir makineyle gerçekten "konuşabildi". Ama bu sadece başlangıçtı. Büyük Dil Modelleri (LLM), yapay zekanın en hızlı gelişen alanı haline geldi. Nasıl çalışıyorlar, neler yapabiliyorlar ve sınırları nerede?</p>
+                </div>
+            </header>
+
+            <figure class="article-hero">
+                <img src="../images/llm.svg" 
+                     alt="Transformer mimarisi ve dikkat mekanizmasını gösteren büyük dil modeli illüstrasyonu" 
+                     width="1200" height="630" loading="eager" itemprop="image">
+                <figcaption>Büyük Dil Modelleri: Milyarlarca parametre, trilyonlarca kelime, bir sonraki token tahmini</figcaption>
+            </figure>
+
+            <div class="article-content container" itemprop="articleBody">
+                <nav class="toc" aria-label="İçindekiler">
+                    <h2>İçindekiler</h2>
+                    <ol>
+                        <li><a href="#llm-nedir">LLM Nedir?</a></li>
+                        <li><a href="#transformer">Transformer Mimarisi</a></li>
+                        <li><a href="#egitim">Nasıl Eğitilir?</a></li>
+                        <li><a href="#onemli-modeller">Önemli Modeller</a></li>
+                        <li><a href="#yetenekler">Yetenekler</a></li>
+                        <li><a href="#sinirlar">Sınırlar ve Sorunlar</a></li>
+                        <li><a href="#kullanim">Kullanım Alanları</a></li>
+                        <li><a href="#gelecek">Gelecek</a></li>
+                    </ol>
+                </nav>
+
+                <section id="llm-nedir">
+                    <h2>LLM Nedir?</h2>
+                    <p><strong>Büyük Dil Modeli (LLM - Large Language Model)</strong>, devasa miktarda metin verisi üzerinde eğitilmiş, milyarlarca parametreye sahip yapay sinir ağlarıdır. Temel görevi basit: Verilen bir metin dizisinden sonra en olası bir sonraki kelimeyi (token) tahmin etmek.</p>
+
+                    <h3>Temel Kavramlar</h3>
+                    <ul>
+                        <li><strong>Token:</strong> Modelin işlediği temel birim — kelime, hece veya karakter parçası</li>
+                        <li><strong>Parametre:</strong> Modelin öğrendiği ağırlıklar — milyarlarla ölçülür</li>
+                        <li><strong>Bağlam penceresi:</strong> Modelin aynı anda işleyebildiği token sayısı</li>
+                        <li><strong>Çıkarım:</strong> Eğitilmiş modelin yeni girdilere yanıt üretmesi</li>
+                    </ul>
+
+                    <h3>Neden "Büyük"?</h3>
+                    <ul>
+                        <li><strong>GPT-3 (2020):</strong> 175 milyar parametre</li>
+                        <li><strong>GPT-4 (2023):</strong> Tahminen 1+ trilyon parametre (açıklanmadı)</li>
+                        <li><strong>Eğitim verisi:</strong> Trilyonlarca token (internet, kitaplar, kod)</li>
+                        <li><strong>Hesaplama:</strong> Binlerce GPU, aylar süren eğitim</li>
+                    </ul>
+
+                    <blockquote>
+                        <p>"LLM'ler dili anlamıyor, sadece istatistiksel örüntüleri yakalıyor. Ama bu örüntüler o kadar derin ki, anlama yanılsaması yaratıyor."</p>
+                        <cite>— Yann LeCun, Meta AI</cite>
+                    </blockquote>
+                </section>
+
+                <section id="transformer">
+                    <h2>Transformer Mimarisi</h2>
+                    <p>Tüm modern LLM'lerin temeli, 2017'de Google'ın "Attention Is All You Need" makalesinde tanıttığı <strong>Transformer</strong> mimarisidir.</p>
+
+                    <h3>Dikkat Mekanizması (Attention)</h3>
+                    <p>Transformer'ın çığır açan yeniliği:</p>
+                    <ul>
+                        <li>Her token, diğer tüm token'lara "dikkat edebilir"</li>
+                        <li>Uzun mesafeli bağımlılıkları yakalayabilir</li>
+                        <li>Paralel işlem — RNN/LSTM'den çok daha hızlı</li>
+                    </ul>
+
+                    <h3>Self-Attention Nasıl Çalışır?</h3>
+                    <ol>
+                        <li>Her token için Query (Q), Key (K), Value (V) vektörleri hesaplanır</li>
+                        <li>Q ve K çarpılarak dikkat skorları elde edilir</li>
+                        <li>Skorlar softmax ile normalize edilir</li>
+                        <li>V vektörleri ağırlıklı olarak toplanır</li>
+                    </ol>
+                    <p style="text-align: center; margin: 1.5rem 0;">
+                        $\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$
+                    </p>
+
+                    <h3>Çok Başlı Dikkat (Multi-Head)</h3>
+                    <ul>
+                        <li>Birden fazla dikkat mekanizması paralel çalışır</li>
+                        <li>Her "baş" farklı ilişkilere odaklanır</li>
+                        <li>Sonuçlar birleştirilir</li>
+                    </ul>
+
+                    <h3>Neden Bu Kadar Etkili?</h3>
+                    <ul>
+                        <li><strong>Ölçeklenebilirlik:</strong> GPU'larda verimli paralel eğitim</li>
+                        <li><strong>Esneklik:</strong> Dil, görüntü, ses — her şeye uygulanabilir</li>
+                        <li><strong>Transfer öğrenme:</strong> Ön eğitim + ince ayar paradigması</li>
+                    </ul>
+                </section>
+
+                <section id="egitim">
+                    <h2>Nasıl Eğitilir?</h2>
+
+                    <h3>Aşama 1: Ön Eğitim (Pre-training)</h3>
+                    <ul>
+                        <li><strong>Veri:</strong> İnternet, kitaplar, Wikipedia, kod depoları</li>
+                        <li><strong>Görev:</strong> Bir sonraki token tahmini (otoregresif)</li>
+                        <li><strong>Süre:</strong> Haftalar veya aylar</li>
+                        <li><strong>Maliyet:</strong> Milyonlarca dolar (GPT-4 için $100M+ tahmin)</li>
+                    </ul>
+
+                    <h3>Aşama 2: İnce Ayar (Fine-tuning)</h3>
+                    <ul>
+                        <li>Belirli görevler için özelleştirme</li>
+                        <li>Daha küçük, kaliteli veri setleri</li>
+                        <li>Talimat takibi, soru-cevap, kod yazma</li>
+                    </ul>
+
+                    <h3>Aşama 3: RLHF</h3>
+                    <p><strong>Reinforcement Learning from Human Feedback</strong> — ChatGPT'yi özel kılan:</p>
+                    <ol>
+                        <li>İnsan değerlendiriciler model çıktılarını sıralar</li>
+                        <li>Bu sıralamalardan bir "ödül modeli" eğitilir</li>
+                        <li>Ana model, ödülü maksimize edecek şekilde güncellenir</li>
+                        <li>Sonuç: Daha yararlı, daha güvenli, daha "insan-dostu" yanıtlar</li>
+                    </ol>
+
+                    <h3>Alternatif Yöntemler</h3>
+                    <ul>
+                        <li><strong>DPO (Direct Preference Optimization):</strong> RLHF'den daha basit</li>
+                        <li><strong>Constitutional AI:</strong> Anthropic'in yaklaşımı — AI kendi kendini denetler</li>
+                        <li><strong>RLAIF:</strong> İnsan yerine AI geri bildirimi</li>
+                    </ul>
+                </section>
+
+                <section id="onemli-modeller">
+                    <h2>Önemli Modeller</h2>
+
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Şirket</th>
+                                <th>Parametre</th>
+                                <th>Öne Çıkan Özellik</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>GPT-4 / GPT-4o</td>
+                                <td>OpenAI</td>
+                                <td>~1T+ (tahmini)</td>
+                                <td>Çok-modlu, en geniş yetenek seti</td>
+                            </tr>
+                            <tr>
+                                <td>Claude 3.5</td>
+                                <td>Anthropic</td>
+                                <td>Açıklanmadı</td>
+                                <td>Uzun bağlam (200K), güvenlik odaklı</td>
+                            </tr>
+                            <tr>
+                                <td>Gemini Ultra</td>
+                                <td>Google</td>
+                                <td>Açıklanmadı</td>
+                                <td>Çok-modlu, Google entegrasyonu</td>
+                            </tr>
+                            <tr>
+                                <td>LLaMA 3</td>
+                                <td>Meta</td>
+                                <td>8B - 405B</td>
+                                <td>Açık kaynak, verimli</td>
+                            </tr>
+                            <tr>
+                                <td>Mistral Large</td>
+                                <td>Mistral AI</td>
+                                <td>~100B+</td>
+                                <td>Avrupa yapımı, verimli</td>
+                            </tr>
+                            <tr>
+                                <td>Grok</td>
+                                <td>xAI</td>
+                                <td>Açıklanmadı</td>
+                                <td>X/Twitter entegrasyonu</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>GPT Serisi Evrimi</h3>
+                    <ul>
+                        <li><strong>GPT-1 (2018):</strong> 117M parametre — kavram kanıtı</li>
+                        <li><strong>GPT-2 (2019):</strong> 1.5B — "tehlikeli" görülüp kısmen gizlendi</li>
+                        <li><strong>GPT-3 (2020):</strong> 175B — few-shot öğrenme yeteneği</li>
+                        <li><strong>ChatGPT (2022):</strong> GPT-3.5 + RLHF — kitlesel popülerlik</li>
+                        <li><strong>GPT-4 (2023):</strong> Çok-modlu, muhakeme atılımı</li>
+                        <li><strong>GPT-4o (2024):</strong> Omni-modal, gerçek zamanlı ses/görüntü</li>
+                    </ul>
+
+                    <h3>Açık Kaynak Devrimi</h3>
+                    <p>Meta'nın LLaMA modelleri ekosistemi değiştirdi:</p>
+                    <ul>
+                        <li>Araştırmacılar ve startuplar güçlü modellere erişim kazandı</li>
+                        <li>Mistral, Falcon, Qwen gibi alternatifler doğdu</li>
+                        <li>Yerel çalıştırma mümkün — gizlilik avantajı</li>
+                    </ul>
+                </section>
+
+                <section id="yetenekler">
+                    <h2>Yetenekler</h2>
+
+                    <h3>Dil Görevleri</h3>
+                    <ul>
+                        <li><strong>Metin üretimi:</strong> Makale, hikaye, şiir, senaryo</li>
+                        <li><strong>Özetleme:</strong> Uzun metinleri kısa özete dönüştürme</li>
+                        <li><strong>Çeviri:</strong> 100+ dil arası çeviri</li>
+                        <li><strong>Soru-cevap:</strong> Bilgi sorgulama, açıklama</li>
+                        <li><strong>Duygu analizi:</strong> Metin tonunu belirleme</li>
+                    </ul>
+
+                    <h3>Kod Yazma</h3>
+                    <ul>
+                        <li>Profesyonel düzeyde kod üretimi</li>
+                        <li>Hata ayıklama ve açıklama</li>
+                        <li>Diller arası çeviri (Python → JavaScript)</li>
+                        <li>GitHub Copilot, Cursor gibi araçlar</li>
+                    </ul>
+
+                    <h3>Muhakeme</h3>
+                    <ul>
+                        <li>Matematik problemleri (lise-üniversite düzeyi)</li>
+                        <li>Mantık bulmacaları</li>
+                        <li>Çok adımlı problem çözme</li>
+                        <li>Chain-of-thought prompting ile iyileşme</li>
+                    </ul>
+
+                    <h3>Çok-Modal Yetenekler</h3>
+                    <ul>
+                        <li><strong>Görüntü anlama:</strong> Fotoğraf açıklama, analiz</li>
+                        <li><strong>Görüntü üretimi:</strong> DALL-E, Midjourney entegrasyonu</li>
+                        <li><strong>Ses:</strong> Transkripsiyon, sesli asistan</li>
+                        <li><strong>Video:</strong> Sora gibi modeller</li>
+                    </ul>
+
+                    <h3>Emerjan Yetenekler</h3>
+                    <p>Ölçek arttıkça beklenmedik yetenekler ortaya çıkıyor:</p>
+                    <ul>
+                        <li>Eğitimde görmediği görevleri çözme</li>
+                        <li>Analoji ve metafor anlama</li>
+                        <li>Rol yapma ve bağlam tutarlılığı</li>
+                    </ul>
+                </section>
+
+                <section id="sinirlar">
+                    <h2>Sınırlar ve Sorunlar</h2>
+
+                    <h3>Halüsinasyon</h3>
+                    <ul>
+                        <li>LLM'ler uydurabilir — güvenle yanlış bilgi verir</li>
+                        <li>Kaynak kontrolü zor</li>
+                        <li>Kritik uygulamalarda tehlikeli</li>
+                        <li>RAG (Retrieval-Augmented Generation) kısmi çözüm</li>
+                    </ul>
+
+                    <h3>Güncel Bilgi Eksikliği</h3>
+                    <ul>
+                        <li>Eğitim verisi belirli bir tarihte kesilir</li>
+                        <li>Yeni olayları bilmez</li>
+                        <li>Web arama entegrasyonu çözüm (Bing, Perplexity)</li>
+                    </ul>
+
+                    <h3>Mantık ve Matematik</h3>
+                    <ul>
+                        <li>Basit aritmetikte hata yapabilir</li>
+                        <li>Çok adımlı mantıkta kaybolabilir</li>
+                        <li>Sayma problemleri</li>
+                        <li>Gelişiyor ama hâlâ güvenilmez</li>
+                    </ul>
+
+                    <h3>Bağlam Sınırı</h3>
+                    <ul>
+                        <li>Çoğu model 4K-128K token ile sınırlı</li>
+                        <li>Uzun belgelerde bilgi kaybı</li>
+                        <li>"Lost in the middle" problemi</li>
+                    </ul>
+
+                    <h3>Önyargı ve Güvenlik</h3>
+                    <ul>
+                        <li>Eğitim verisindeki önyargıları yansıtır</li>
+                        <li>Zararlı içerik üretme potansiyeli</li>
+                        <li>Jailbreak saldırıları</li>
+                        <li>Gizlilik endişeleri</li>
+                    </ul>
+
+                    <blockquote>
+                        <p>"LLM'ler mükemmel değil, ama inanılmaz derecede kullanışlı. Önemli olan sınırlarını bilmek."</p>
+                        <cite>— Andrej Karpathy, eski OpenAI/Tesla</cite>
+                    </blockquote>
+                </section>
+
+                <section id="kullanim">
+                    <h2>Kullanım Alanları</h2>
+
+                    <h3>İş Dünyası</h3>
+                    <ul>
+                        <li><strong>Müşteri hizmetleri:</strong> Chatbotlar, destek otomasyonu</li>
+                        <li><strong>İçerik üretimi:</strong> Pazarlama, raporlar, e-postalar</li>
+                        <li><strong>Veri analizi:</strong> Raporları özetleme, insight çıkarma</li>
+                        <li><strong>Hukuk:</strong> Sözleşme analizi, araştırma</li>
+                    </ul>
+
+                    <h3>Yazılım Geliştirme</h3>
+                    <ul>
+                        <li><strong>Kod asistanları:</strong> GitHub Copilot, Cursor, Codeium</li>
+                        <li><strong>Dokümantasyon:</strong> Otomatik açıklama ve belgeleme</li>
+                        <li><strong>Test:</strong> Test case üretimi</li>
+                        <li><strong>Kod inceleme:</strong> Bug tespiti, iyileştirme önerileri</li>
+                    </ul>
+
+                    <h3>Eğitim</h3>
+                    <ul>
+                        <li>Kişiselleştirilmiş öğretmen</li>
+                        <li>Dil öğrenimi</li>
+                        <li>Ödev yardımı (ve kopya tartışması)</li>
+                        <li>Soru bankası oluşturma</li>
+                    </ul>
+
+                    <h3>Sağlık</h3>
+                    <ul>
+                        <li>Tıbbi literatür özetleme</li>
+                        <li>Hasta notları yazma</li>
+                        <li>Semptom ön değerlendirme</li>
+                        <li>İlaç etkileşimi kontrolü</li>
+                    </ul>
+
+                    <h3>Yaratıcı Endüstriler</h3>
+                    <ul>
+                        <li>Senaryo ve hikaye yazımı</li>
+                        <li>Oyun diyalogları</li>
+                        <li>Reklam metinleri</li>
+                        <li>Brainstorming ortağı</li>
+                    </ul>
+                </section>
+
+                <section id="gelecek">
+                    <h2>Gelecek</h2>
+
+                    <h3>Kısa Vadeli (1-2 Yıl)</h3>
+                    <ul>
+                        <li>Daha uzun bağlam pencereleri (1M+ token)</li>
+                        <li>Daha iyi muhakeme — o1/o3 tipi modeller</li>
+                        <li>Gerçek zamanlı çok-modal etkileşim</li>
+                        <li>Daha verimli, daha ucuz modeller</li>
+                        <li>Yerel çalıştırma iyileşmesi</li>
+                    </ul>
+
+                    <h3>Orta Vadeli (3-5 Yıl)</h3>
+                    <ul>
+                        <li>Agent sistemleri — LLM'ler araç kullanır, görev tamamlar</li>
+                        <li>Sürekli öğrenme — gerçek zamanlı bilgi güncelleme</li>
+                        <li>Özelleştirilmiş kişisel modeller</li>
+                        <li>Çok daha güvenilir, az halüsinasyon</li>
+                    </ul>
+
+                    <h3>Uzun Vadeli</h3>
+                    <ul>
+                        <li>AGI'ya katkı — veya AGI'nın temel bileşeni</li>
+                        <li>Bilim ve araştırmada devrim</li>
+                        <li>İş dünyasında radikal dönüşüm</li>
+                        <li>Yeni etik ve düzenleyici çerçeveler</li>
+                    </ul>
+
+                    <h3>Açık Sorular</h3>
+                    <ul>
+                        <li>Ölçekleme duvarına çarpar mıyız?</li>
+                        <li>Veri tükenmesi sorunu nasıl çözülür?</li>
+                        <li>Gerçek "anlama" mümkün mü?</li>
+                        <li>Ekonomik etkileri nasıl yönetiriz?</li>
+                    </ul>
+
+                    <blockquote>
+                        <p>"LLM'ler, elektriğin veya internetin etkisi kadar dönüştürücü olabilir. Henüz başındayız."</p>
+                        <cite>— Satya Nadella, Microsoft CEO'su</cite>
+                    </blockquote>
+                </section>
+
+                <section class="faq-section" itemscope itemtype="https://schema.org/FAQPage">
+                    <h2>Sıkça Sorulan Sorular</h2>
+                    
+                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <h3 itemprop="name">LLM'ler gerçekten "anlıyor" mu?</h3>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Felsefik tartışma konusu. Teknik olarak LLM'ler istatistiksel örüntü eşleştirme yapıyor — bir sonraki token'ı tahmin ediyor. "Anlama" için gerekli olan dünya modeli, niyet veya bilinç var mı tartışmalı. Pragmatik yaklaşım: Sonuçlar anlama gerektiren görevlerde başarılıysa, "anlama"nın tanımını sorgulamalıyız.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <h3 itemprop="name">Hangi LLM en iyi?</h3>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Göreve bağlı. GPT-4o genel amaçlı en güçlü seçeneklerden. Claude 3.5 uzun belgeler ve güvenlik için öne çıkıyor. Kod için Claude veya GPT-4 iyi. Açık kaynak tercih ediyorsanız LLaMA 3 veya Mistral. Maliyet önemliyse küçük modeller (GPT-4o-mini, Claude Haiku) verimli. Benchmark'lar sürekli değişiyor.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                        <h3 itemprop="name">LLM'ler işleri yok edecek mi?</h3>
+                        <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <p itemprop="text">Bazı işleri dönüştürecek, bazılarını ortadan kaldırabilir, yenilerini yaratacak. En çok etkilenecek alanlar: Müşteri hizmetleri, içerik yazarlığı, basit kodlama, veri girişi. Ancak tarihte her teknoloji devrimi net iş kaybından çok dönüşüm getirdi. Kritik olan: Adaptasyon hızı ve eğitim sistemlerinin tepkisi.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="article-footer">
+                    <div class="share-section">
+                        <h3>Bu Yazıyı Paylaş</h3>
+                        <div class="share-buttons">
+                            <a href="https://twitter.com/intent/tweet?text=Büyük%20Dil%20Modelleri%20Dil%20Devrimi&url=https://mcyigit.net/yazilar/llm-dil-modelleri.html" target="_blank" rel="noopener noreferrer" aria-label="Twitter'da paylaş">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://mcyigit.net/yazilar/llm-dil-modelleri.html" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn'de paylaş">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">MC<span class="logo-dot">.</span>Yigit</a>
+                    <p class="footer-tagline">Geleceği bugünden keşfedin.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MC.Yigit. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js" defer></script>
+</body>
+</html>
