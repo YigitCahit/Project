@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <rect width="400" height="250" fill="#111113"/>
+  <defs>
+    <linearGradient id="shield-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="lock-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Shield outline -->
+  <path d="M200 40 L280 70 L280 140 C280 180 245 210 200 230 C155 210 120 180 120 140 L120 70 Z" 
+        fill="#1a1a1d" stroke="url(#shield-grad)" stroke-width="2.5"/>
+  
+  <!-- Inner shield glow -->
+  <path d="M200 55 L265 80 L265 140 C265 172 237 197 200 213 C163 197 135 172 135 140 L135 80 Z" 
+        fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Lock body -->
+  <rect x="175" y="115" width="50" height="40" rx="5" fill="#1a1a1d" stroke="url(#lock-grad)" stroke-width="2"/>
+  
+  <!-- Lock shackle -->
+  <path d="M182 115 L182 100 C182 85 193 75 200 75 C207 75 218 85 218 100 L218 115" 
+        fill="none" stroke="url(#lock-grad)" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Keyhole -->
+  <circle cx="200" cy="130" r="6" fill="#8b5cf6" opacity="0.8"/>
+  <rect x="197" y="132" width="6" height="12" rx="2" fill="#8b5cf6" opacity="0.8"/>
+  
+  <!-- Binary data streams (left) -->
+  <g fill="#8b5cf6" font-family="monospace" font-size="8" opacity="0.4">
+    <text x="30" y="60">01101</text>
+    <text x="45" y="80">10010</text>
+    <text x="25" y="100">11001</text>
+    <text x="50" y="120">00110</text>
+    <text x="35" y="140">10101</text>
+    <text x="55" y="160">01100</text>
+    <text x="30" y="180">11010</text>
+    <text x="45" y="200">00101</text>
+  </g>
+  
+  <!-- Binary data streams (right) -->
+  <g fill="#c084fc" font-family="monospace" font-size="8" opacity="0.4">
+    <text x="325" y="60">10110</text>
+    <text x="340" y="80">01001</text>
+    <text x="320" y="100">11100</text>
+    <text x="345" y="120">00011</text>
+    <text x="330" y="140">10010</text>
+    <text x="350" y="160">01101</text>
+    <text x="325" y="180">11001</text>
+    <text x="340" y="200">00110</text>
+  </g>
+  
+  <!-- Threat indicators (red dots - blocked) -->
+  <g>
+    <circle cx="90" cy="90" r="4" fill="#ef4444" opacity="0.7"/>
+    <line x1="87" y1="87" x2="93" y2="93" stroke="#ef4444" stroke-width="1.5"/>
+    <line x1="93" y1="87" x2="87" y2="93" stroke="#ef4444" stroke-width="1.5"/>
+    
+    <circle cx="310" cy="110" r="4" fill="#ef4444" opacity="0.7"/>
+    <line x1="307" y1="107" x2="313" y2="113" stroke="#ef4444" stroke-width="1.5"/>
+    <line x1="313" y1="107" x2="307" y2="113" stroke="#ef4444" stroke-width="1.5"/>
+    
+    <circle cx="85" cy="170" r="4" fill="#ef4444" opacity="0.7"/>
+    <line x1="82" y1="167" x2="88" y2="173" stroke="#ef4444" stroke-width="1.5"/>
+    <line x1="88" y1="167" x2="82" y2="173" stroke="#ef4444" stroke-width="1.5"/>
+    
+    <circle cx="315" cy="165" r="4" fill="#ef4444" opacity="0.7"/>
+    <line x1="312" y1="162" x2="318" y2="168" stroke="#ef4444" stroke-width="1.5"/>
+    <line x1="318" y1="162" x2="312" y2="168" stroke="#ef4444" stroke-width="1.5"/>
+  </g>
+  
+  <!-- AI circuit nodes around shield -->
+  <g stroke="#8b5cf6" stroke-width="1" opacity="0.6">
+    <circle cx="130" cy="55" r="5" fill="#1a1a1d"/>
+    <circle cx="270" cy="55" r="5" fill="#1a1a1d"/>
+    <circle cx="100" cy="120" r="5" fill="#1a1a1d"/>
+    <circle cx="300" cy="120" r="5" fill="#1a1a1d"/>
+    <circle cx="130" cy="190" r="5" fill="#1a1a1d"/>
+    <circle cx="270" cy="190" r="5" fill="#1a1a1d"/>
+    
+    <!-- Connection lines to shield -->
+    <line x1="130" y1="55" x2="160" y2="60" stroke-dasharray="3,3"/>
+    <line x1="270" y1="55" x2="240" y2="60" stroke-dasharray="3,3"/>
+    <line x1="100" y1="120" x2="120" y2="120" stroke-dasharray="3,3"/>
+    <line x1="300" y1="120" x2="280" y2="120" stroke-dasharray="3,3"/>
+    <line x1="130" y1="190" x2="155" y2="200" stroke-dasharray="3,3"/>
+    <line x1="270" y1="190" x2="245" y2="200" stroke-dasharray="3,3"/>
+  </g>
+  
+  <!-- Encryption symbols -->
+  <g fill="#71717a" font-family="monospace" font-size="9">
+    <text x="160" y="175">AES-256</text>
+  </g>
+  
+  <!-- Shield glow effect -->
+  <circle cx="200" cy="140" r="90" fill="#8b5cf6" opacity="0.08" filter="blur(30px)"/>
+  
+  <!-- Bottom text -->
+  <text x="200" y="240" text-anchor="middle" fill="#52525b" font-family="system-ui" font-size="10">AI-Powered Cyber Defense System</text>
+</svg>
