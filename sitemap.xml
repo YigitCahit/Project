@@ -38,6 +38,19 @@
     
     <!-- ==================== TEKNOLOJİ YAZILARI ==================== -->
     
+    <!-- Küresel Bellek Krizi 2025 -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/bellek-krizi-2025.html</loc>
+        <lastmod>2025-12-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/bellek-krizi.svg</image:loc>
+            <image:title>Küresel Bellek Krizi 2025</image:title>
+            <image:caption>HBM savaşları, DDR5 kıtlığı ve tedarik zinciri çöküşü</image:caption>
+        </image:image>
+    </url>
+    
     <!-- Siber Güvenlik 2025 -->
     <url>
         <loc>https://mcyigit.net/yazilar/siber-guvenlik-2025.html</loc>
