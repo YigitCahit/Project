@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <rect width="400" height="250" fill="#111113"/>
+  <defs>
+    <linearGradient id="node-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="chain-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="soft-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Network Connection Lines -->
+  <g stroke="#8b5cf6" stroke-width="1" opacity="0.4">
+    <!-- Central to outer nodes -->
+    <line x1="200" y1="125" x2="80" y2="60"/>
+    <line x1="200" y1="125" x2="320" y2="60"/>
+    <line x1="200" y1="125" x2="60" y2="140"/>
+    <line x1="200" y1="125" x2="340" y2="140"/>
+    <line x1="200" y1="125" x2="100" y2="200"/>
+    <line x1="200" y1="125" x2="300" y2="200"/>
+    <!-- Cross connections -->
+    <line x1="80" y1="60" x2="60" y2="140"/>
+    <line x1="320" y1="60" x2="340" y2="140"/>
+    <line x1="60" y1="140" x2="100" y2="200"/>
+    <line x1="340" y1="140" x2="300" y2="200"/>
+    <line x1="80" y1="60" x2="320" y2="60" stroke-dasharray="4,4"/>
+    <line x1="100" y1="200" x2="300" y2="200" stroke-dasharray="4,4"/>
+  </g>
+  
+  <!-- Central AI Brain Node -->
+  <g filter="url(#soft-glow)">
+    <circle cx="200" cy="125" r="35" fill="#1a1a1d" stroke="url(#node-grad)" stroke-width="2"/>
+    <!-- Neural network pattern inside -->
+    <g stroke="#8b5cf6" stroke-width="1" opacity="0.7">
+      <circle cx="190" cy="115" r="5" fill="none"/>
+      <circle cx="210" cy="115" r="5" fill="none"/>
+      <circle cx="200" cy="135" r="5" fill="none"/>
+      <line x1="190" y1="120" x2="200" y2="130"/>
+      <line x1="210" y1="120" x2="200" y2="130"/>
+      <line x1="190" y1="115" x2="210" y2="115"/>
+    </g>
+    <!-- AI label -->
+    <text x="200" y="155" text-anchor="middle" fill="#c084fc" font-family="monospace" font-size="8" font-weight="bold">DiLoCo</text>
+  </g>
+  
+  <!-- Distributed GPU Nodes -->
+  <!-- Node 1 - Top Left -->
+  <g filter="url(#glow)">
+    <rect x="55" y="40" width="50" height="40" rx="5" fill="#1a1a1d" stroke="url(#node-grad)" stroke-width="1.5"/>
+    <text x="80" y="55" text-anchor="middle" fill="#a78bfa" font-family="monospace" font-size="8">GPU</text>
+    <text x="80" y="70" text-anchor="middle" fill="#71717a" font-family="monospace" font-size="6">Node 1</text>
+  </g>
+  
+  <!-- Node 2 - Top Right -->
+  <g filter="url(#glow)">
+    <rect x="295" y="40" width="50" height="40" rx="5" fill="#1a1a1d" stroke="url(#node-grad)" stroke-width="1.5"/>
+    <text x="320" y="55" text-anchor="middle" fill="#a78bfa" font-family="monospace" font-size="8">GPU</text>
+    <text x="320" y="70" text-anchor="middle" fill="#71717a" font-family="monospace" font-size="6">Node 2</text>
+  </g>
+  
+  <!-- Node 3 - Left -->
+  <g filter="url(#glow)">
+    <rect x="35" y="120" width="50" height="40" rx="5" fill="#1a1a1d" stroke="url(#node-grad)" stroke-width="1.5"/>
+    <text x="60" y="135" text-anchor="middle" fill="#a78bfa" font-family="monospace" font-size="8">GPU</text>
+    <text x="60" y="150" text-anchor="middle" fill="#71717a" font-family="monospace" font-size="6">Node 3</text>
+  </g>
+  
+  <!-- Node 4 - Right -->
+  <g filter="url(#glow)">
+    <rect x="315" y="120" width="50" height="40" rx="5" fill="#1a1a1d" stroke="url(#node-grad)" stroke-width="1.5"/>
+    <text x="340" y="135" text-anchor="middle" fill="#a78bfa" font-family="monospace" font-size="8">GPU</text>
+    <text x="340" y="150" text-anchor="middle" fill="#71717a" font-family="monospace" font-size="6">Node 4</text>
+  </g>
+  
+  <!-- Node 5 - Bottom Left -->
+  <g filter="url(#glow)">
+    <rect x="75" y="180" width="50" height="40" rx="5" fill="#1a1a1d" stroke="url(#node-grad)" stroke-width="1.5"/>
+    <text x="100" y="195" text-anchor="middle" fill="#a78bfa" font-family="monospace" font-size="8">GPU</text>
+    <text x="100" y="210" text-anchor="middle" fill="#71717a" font-family="monospace" font-size="6">Node 5</text>
+  </g>
+  
+  <!-- Node 6 - Bottom Right -->
+  <g filter="url(#glow)">
+    <rect x="275" y="180" width="50" height="40" rx="5" fill="#1a1a1d" stroke="url(#node-grad)" stroke-width="1.5"/>
+    <text x="300" y="195" text-anchor="middle" fill="#a78bfa" font-family="monospace" font-size="8">GPU</text>
+    <text x="300" y="210" text-anchor="middle" fill="#71717a" font-family="monospace" font-size="6">Node 6</text>
+  </g>
+  
+  <!-- Blockchain verification blocks at bottom -->
+  <g transform="translate(155, 210)">
+    <rect x="0" y="0" width="18" height="18" rx="2" fill="url(#chain-grad)" opacity="0.8"/>
+    <rect x="22" y="0" width="18" height="18" rx="2" fill="url(#chain-grad)" opacity="0.8"/>
+    <rect x="44" y="0" width="18" height="18" rx="2" fill="url(#chain-grad)" opacity="0.8"/>
+    <rect x="66" y="0" width="18" height="18" rx="2" fill="url(#chain-grad)" opacity="0.8"/>
+    <!-- Chain links -->
+    <line x1="18" y1="9" x2="22" y2="9" stroke="#c084fc" stroke-width="1"/>
+    <line x1="40" y1="9" x2="44" y2="9" stroke="#c084fc" stroke-width="1"/>
+    <line x1="62" y1="9" x2="66" y2="9" stroke="#c084fc" stroke-width="1"/>
+    <!-- PoL text -->
+    <text x="42" y="35" text-anchor="middle" fill="#71717a" font-family="monospace" font-size="7">Proof-of-Learning</text>
+  </g>
+  
+  <!-- Data flow particles -->
+  <g fill="#c084fc">
+    <circle cx="140" cy="92" r="2" opacity="0.7">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="260" cy="92" r="2" opacity="0.7">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="130" cy="132" r="2" opacity="0.7">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="270" cy="132" r="2" opacity="0.7">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="150" cy="162" r="2" opacity="0.7">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" begin="0.7s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="250" cy="162" r="2" opacity="0.7">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" begin="1.2s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Gradient sync indicator -->
+  <g transform="translate(200, 40)">
+    <path d="M-10 0 L0 -8 L10 0 L0 8 Z" fill="none" stroke="#8b5cf6" stroke-width="1" filter="url(#glow)"/>
+    <text x="0" y="18" text-anchor="middle" fill="#a78bfa" font-family="monospace" font-size="6">∇ Sync</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="200" y="20" text-anchor="middle" fill="#e4e4e7" font-family="system-ui" font-size="11" font-weight="500">Merkeziyetsiz AI Eğitimi</text>
+</svg>

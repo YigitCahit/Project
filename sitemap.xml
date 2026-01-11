@@ -252,6 +252,19 @@
     
     <!-- ==================== YAPAY ZEKA YAZILARI ==================== -->
     
+    <!-- Merkeziyetsiz Yapay Zeka Eğitimi -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/merkeziyetsiz-yapay-zeka-egitimi.html</loc>
+        <lastmod>2026-01-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/merkeziyetsiz-ai.svg</image:loc>
+            <image:title>Merkeziyetsiz Yapay Zeka Eğitimi</image:title>
+            <image:caption>Dağıtık GPU ağları ve blokzincir tabanlı AI eğitimi</image:caption>
+        </image:image>
+    </url>
+    
     <!-- Yapay Zeka ve Bilinç -->
     <url>
         <loc>https://mcyigit.net/yazilar/yapay-zeka-bilinc.html</loc>
