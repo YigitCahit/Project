@@ -7,7 +7,7 @@
     <!-- Ana Sayfa -->
     <url>
         <loc>https://mcyigit.net/</loc>
-        <lastmod>2026-01-08</lastmod>
+        <lastmod>2026-02-09</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -251,6 +251,19 @@
     </url>
     
     <!-- ==================== YAPAY ZEKA YAZILARI ==================== -->
+    
+    <!-- Yapay Zeka Tuzağı -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/yapay-zeka-tuzagi.html</loc>
+        <lastmod>2026-02-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/yapay-zeka-tuzagi.svg</image:loc>
+            <image:title>Yapay Zeka Tuzağı</image:title>
+            <image:caption>Ücretsiz erişimden fahiş fiyatlandırmaya: YZ ekonomisinin karanlık geleceği</image:caption>
+        </image:image>
+    </url>
     
     <!-- Merkeziyetsiz Yapay Zeka Eğitimi -->
     <url>
