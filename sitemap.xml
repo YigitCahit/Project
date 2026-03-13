@@ -38,6 +38,19 @@
     
     <!-- ==================== TEKNOLOJİ YAZILARI ==================== -->
     
+    <!-- Kuantum Sonrası Şifreleme ve E2EE -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/kuantum-sonrasi-sifreleme.html</loc>
+        <lastmod>2026-02-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/pqc-sifreleme.svg</image:loc>
+            <image:title>Kuantum Sonrası Şifreleme ve E2EE</image:title>
+            <image:caption>Post-quantum kriptografi, NIST PQC standartları ve uçtan uca şifrelemenin geleceği</image:caption>
+        </image:image>
+    </url>
+    
     <!-- Küresel Bellek Krizi 2025 -->
     <url>
         <loc>https://mcyigit.net/yazilar/bellek-krizi-2025.html</loc>
