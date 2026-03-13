@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#111113"/>
+
+  <defs>
+    <linearGradient id="bg-grad" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14141a"/>
+      <stop offset="1" stop-color="#0f0f13"/>
+    </linearGradient>
+    <linearGradient id="pqc-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="warn-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f43f5e"/>
+      <stop offset="1" stop-color="#ef4444"/>
+    </linearGradient>
+    <linearGradient id="safe-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+    <filter id="glow-soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-hard" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg-grad)"/>
+
+  <!-- grid -->
+  <g stroke="#2a2a34" stroke-width="1" opacity="0.38">
+    <line x1="0" y1="50" x2="800" y2="50"/>
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="350" x2="800" y2="350"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="80" y1="0" x2="80" y2="450"/>
+    <line x1="160" y1="0" x2="160" y2="450"/>
+    <line x1="240" y1="0" x2="240" y2="450"/>
+    <line x1="320" y1="0" x2="320" y2="450"/>
+    <line x1="400" y1="0" x2="400" y2="450"/>
+    <line x1="480" y1="0" x2="480" y2="450"/>
+    <line x1="560" y1="0" x2="560" y2="450"/>
+    <line x1="640" y1="0" x2="640" y2="450"/>
+    <line x1="720" y1="0" x2="720" y2="450"/>
+  </g>
+
+  <!-- left side classical risk -->
+  <g transform="translate(120 225)" filter="url(#glow-hard)">
+    <rect x="-80" y="-90" width="160" height="180" rx="14" fill="#17171d" stroke="url(#warn-grad)" stroke-width="2"/>
+    <text x="0" y="-56" text-anchor="middle" fill="#fda4af" font-family="monospace" font-size="16" font-weight="700">CLASSICAL</text>
+    <text x="0" y="-34" text-anchor="middle" fill="#a1a1aa" font-family="monospace" font-size="11">RSA ECC DH</text>
+
+    <!-- broken lock -->
+    <path d="M-34 20V2C-34-26 34-26 34 2V20" stroke="#fb7185" stroke-width="8" stroke-linecap="round"/>
+    <rect x="-42" y="20" width="84" height="62" rx="10" fill="#22141a" stroke="#fb7185" stroke-width="3"/>
+    <path d="M-2 40L18 58" stroke="#f43f5e" stroke-width="4" stroke-linecap="round"/>
+    <path d="M18 40L-2 58" stroke="#f43f5e" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- attack wave -->
+    <path d="M-64 94Q-22 78 20 94T84 94" stroke="#f43f5e" stroke-width="2" stroke-dasharray="5 4" opacity="0.75"/>
+  </g>
+
+  <!-- right side post quantum safe -->
+  <g transform="translate(680 225)" filter="url(#glow-hard)">
+    <rect x="-80" y="-90" width="160" height="180" rx="14" fill="#17171d" stroke="url(#safe-grad)" stroke-width="2"/>
+    <text x="0" y="-56" text-anchor="middle" fill="#67e8f9" font-family="monospace" font-size="16" font-weight="700">POST QUANTUM</text>
+    <text x="0" y="-34" text-anchor="middle" fill="#a1a1aa" font-family="monospace" font-size="11">ML-KEM ML-DSA</text>
+
+    <!-- strong lock -->
+    <path d="M-34 20V2C-34-26 34-26 34 2V20" stroke="#38bdf8" stroke-width="8" stroke-linecap="round"/>
+    <rect x="-42" y="20" width="84" height="62" rx="10" fill="#112033" stroke="#38bdf8" stroke-width="3"/>
+    <circle cx="0" cy="51" r="10" fill="none" stroke="#7dd3fc" stroke-width="3"/>
+    <path d="M0 61V70" stroke="#7dd3fc" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- shield mark -->
+    <path d="M58 16L72 20V38C72 50 63 60 58 63C53 60 44 50 44 38V20L58 16Z" fill="#0f2f45" stroke="#67e8f9" stroke-width="2"/>
+    <path d="M53 38L57 42L64 34" stroke="#67e8f9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- center secure channel -->
+  <g transform="translate(400 225)">
+    <circle cx="0" cy="0" r="110" fill="#5b21b6" opacity="0.08" filter="url(#glow-soft)"/>
+    <circle cx="0" cy="0" r="92" fill="#151520" stroke="url(#pqc-grad)" stroke-width="2"/>
+
+    <!-- lattice matrix -->
+    <g stroke="#a78bfa" stroke-width="1" opacity="0.7">
+      <line x1="-42" y1="-32" x2="42" y2="-32"/>
+      <line x1="-42" y1="0" x2="42" y2="0"/>
+      <line x1="-42" y1="32" x2="42" y2="32"/>
+      <line x1="-42" y1="-32" x2="-42" y2="32"/>
+      <line x1="-14" y1="-32" x2="-14" y2="32"/>
+      <line x1="14" y1="-32" x2="14" y2="32"/>
+      <line x1="42" y1="-32" x2="42" y2="32"/>
+    </g>
+
+    <g fill="#c4b5fd">
+      <circle cx="-42" cy="-32" r="3"/>
+      <circle cx="-14" cy="-32" r="3"/>
+      <circle cx="14" cy="-32" r="3"/>
+      <circle cx="42" cy="-32" r="3"/>
+      <circle cx="-42" cy="0" r="3"/>
+      <circle cx="-14" cy="0" r="3"/>
+      <circle cx="14" cy="0" r="3"/>
+      <circle cx="42" cy="0" r="3"/>
+      <circle cx="-42" cy="32" r="3"/>
+      <circle cx="-14" cy="32" r="3"/>
+      <circle cx="14" cy="32" r="3"/>
+      <circle cx="42" cy="32" r="3"/>
+    </g>
+
+    <text x="0" y="-58" text-anchor="middle" fill="#ddd6fe" font-family="monospace" font-size="12" font-weight="700">E2EE MIGRATION</text>
+    <text x="0" y="56" text-anchor="middle" fill="#a1a1aa" font-family="monospace" font-size="10">HYBRID X25519 + ML-KEM</text>
+  </g>
+
+  <!-- links -->
+  <g stroke="url(#pqc-grad)" stroke-width="3" stroke-linecap="round" opacity="0.9" filter="url(#glow-hard)">
+    <line x1="202" y1="225" x2="304" y2="225"/>
+    <line x1="496" y1="225" x2="598" y2="225"/>
+  </g>
+
+  <!-- moving packets -->
+  <g fill="#c4b5fd">
+    <circle cx="248" cy="225" r="4"/>
+    <circle cx="552" cy="225" r="4"/>
+  </g>
+
+  <!-- title and subtitle -->
+  <text x="400" y="46" text-anchor="middle" fill="#f4f4f5" font-family="system-ui" font-size="26" font-weight="600">Kuantum Sonrasi Sifreleme</text>
+  <text x="400" y="74" text-anchor="middle" fill="#a1a1aa" font-family="monospace" font-size="13">NIST PQC, Signal PQXDH, Apple PQ3</text>
+
+  <!-- timeline -->
+  <g transform="translate(400 410)">
+    <line x1="-300" y1="0" x2="300" y2="0" stroke="#3f3f46" stroke-width="2"/>
+    <circle cx="-210" cy="0" r="6" fill="#f43f5e"/>
+    <circle cx="0" cy="0" r="6" fill="#8b5cf6"/>
+    <circle cx="210" cy="0" r="6" fill="#38bdf8"/>
+    <text x="-210" y="-12" text-anchor="middle" fill="#fda4af" font-family="monospace" font-size="10">NOW: HNDL</text>
+    <text x="0" y="-12" text-anchor="middle" fill="#c4b5fd" font-family="monospace" font-size="10">TRANSITION</text>
+    <text x="210" y="-12" text-anchor="middle" fill="#67e8f9" font-family="monospace" font-size="10">PQC READY</text>
+  </g>
+</svg>
