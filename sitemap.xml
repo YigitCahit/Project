@@ -156,6 +156,19 @@
             <image:caption>Galaksileri bir arada tutan karanlık madde ağı</image:caption>
         </image:image>
     </url>
+
+    <!-- Nükleer Kış ve 7:10 Kuralı -->
+    <url>
+        <loc>https://mcyigit.net/yazilar/nukleer-kisa-hazir-misiniz-7-10-kurali.html</loc>
+        <lastmod>2026-03-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://mcyigit.net/images/nukleer-kis-7-10.svg</image:loc>
+            <image:title>Nükleer Kışa Hazırlık ve 7:10 Kuralı</image:title>
+            <image:caption>Nükleer serpinti sonrası doz düşüşünü açıklayan 7:10 kuralı infografiği</image:caption>
+        </image:image>
+    </url>
     
     <!-- CRISPR Gen Düzenleme -->
     <url>
