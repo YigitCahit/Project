@@ -472,6 +472,46 @@ button {
     gap: var(--space-6);
 }
 
+/* DIY (Kendin Yap) — placeholder card while content is being prepared */
+.diy-coming-soon {
+    grid-column: 1 / -1;
+    max-width: 640px;
+    margin: 0 auto;
+    border-style: dashed;
+    background-color: transparent;
+}
+
+.diy-coming-soon:hover {
+    transform: none;
+    border-color: var(--color-border);
+    box-shadow: none;
+}
+
+.diy-coming-soon .card-content {
+    padding: var(--space-12) var(--space-6);
+    text-align: center;
+}
+
+.diy-coming-soon .coming-soon-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin-bottom: var(--space-3);
+}
+
+.diy-coming-soon h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-3);
+    color: var(--color-text-primary);
+}
+
+.diy-coming-soon p {
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+}
+
 .article-card,
 .featured-card {
     background-color: var(--color-bg-card);

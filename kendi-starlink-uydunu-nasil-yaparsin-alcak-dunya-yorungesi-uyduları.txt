@@ -1,0 +1,135 @@
+Kendi LEO (Starlink Benzeri) Uydunuzu Geliştirme Üzerine Kapsamlı Araştırma Raporu
+
+Alçak Dünya Yörüngesi (LEO) Sistemlerinin Temel Dinamikleri ve Orbital Mekanikler
+
+Modern uydu haberleşme mimarileri, veri iletim hızları, sinyal gecikme süreleri ve küresel kapsama alanı gereksinimleri doğrultusunda, fiziksel yörünge özelliklerine göre derinlemesine sınıflandırılmaktadır. Bu sınıflandırmanın merkezinde yer alan Alçak Dünya Yörüngesi (LEO - Low Earth Orbit), yeryüzünden yaklaşık 500 kilometre ila 1500 kilometre yükseklikte konumlanan ve uydu dönüş periyodunun 10 ila 40 dakika gibi oldukça kısa aralıklarda değiştiği dinamik bir yörünge tipidir. Klasik Jeostatik Yörünge (GEO) sistemlerinin yaklaşık 35.786 kilometre irtifada sabit bir noktaya odaklanmasının aksine, LEO uyduları Dünya'ya çok daha yakın olmalarının getirdiği fiziksel avantajlar ile telekomünikasyon ve veri aktarım sektöründe radikal bir paradigma değişimine yol açmıştır.
+
+LEO uydularının yeryüzüne olan yakınlığı, serbest uzay yol kaybı (free-space path loss) ve sinyal yayılım gecikmesini dramatik ölçüde azaltmaktadır. Uzay iletişiminde en kritik metriklerden biri olan gecikme (round-trip latency), GEO uydularında sinyalin uzaya gidip gelmesi sürecinde yaklaşık 500 milisaniye seviyelerine çıkarken, LEO uydularında bu süre 10 milisaniye civarına düşmektedir. Gelişmiş ağ içi yönlendirme algoritmaları ve takımyıldızı çapraz bağlantıları dikkate alındığında bile uçtan uca gecikme 0.5 saniye gibi oldukça rekabetçi bir seviyede tutulabilmektedir. Bu devasa düşük gecikme süresi profili; eşzamanlı video konferansları, anlık borsa işlemleri, otonom araç telemetrisi ve çevrimiçi oyunlar gibi zaman-kritik uygulamalar için LEO sistemlerini vazgeçilmez bir omurga haline getirmektedir. Ayrıca, daha yüksek Taşıyıcı-Gürültü (C/N) oranları sunmaları sayesinde, yer istasyonlarında ve son kullanıcı tarafında devasa çanak antenlere (bulky receiver equipment) ihtiyaç duyulmamakta, daha kompakt sistemler kullanılabilmektedir.
+
+Boyut, ağırlık ve güç (SWaP) gereksinimleri düşük olan, maliyet-etkin küçük kullanıcı terminalleri ile yüksek frekanslarda stabil bağlantı kurulabilmesi mümkün hale gelmektedir. Bu durum özellikle hareketli platformlar olan uçaklar, ticari jetler ve deniz araçları için LEO sistemlerini devrimsel bir noktaya taşımaktadır. GEO sistemlerinin uyduları takip etmek için sürekli mekanik yönlendirme gerektiren yüksek güç tüketimli, büyük ve pahalı yönlü antenler gerektirmesine karşın, LEO ağları çok yönlü (omni-directional) veya küçük, elektronik yönlendirmeli faz dizili (phased array) antenlerle çalışabilmektedir.
+
+Ancak bu jeouzaysal yakınlığın getirdiği sistem mühendisliği zorlukları ve tasarımsal dezavantajlar da mevcuttur. Düşük irtifa nedeniyle her bir LEO uydusunun Dünya üzerinde aydınlattığı (kapsadığı) alan (footprint) oldukça küçüktür. Sabit bir yeryüzü gözlemcisi için bir LEO uydusunun ufuk çizgisi üzerinde görünür kaldığı (görüş hattı - Line of Sight) süre yalnızca 15 ila 20 dakika arasındadır. Bu geçici görünürlük penceresi, yeryüzündeki bir aboneye kesintisiz bir internet veya iletişim servisi sunabilmek için uydular arası sürekli ve son derece hızlı bir devir teslim (frequent handover) sürecini zorunlu kılar. Dolayısıyla, küresel veya geniş bölgesel kapsama sağlamak için geleneksel sistemlerdeki gibi birkaç uydu değil, binlerce uydudan oluşan devasa takımyıldızlara (mega-constellations) ve bu karmaşık veri trafiğini anlık olarak yönetecek gelişmiş yer istasyonlarına ihtiyaç duyulmaktadır. Atmosferik sürtünme etkilerinin LEO irtifalarında daha belirgin olması ve uyduların yörünge ömürlerinin (lifespan) GEO uydularına kıyasla çok daha kısa olması, işletmeciler açısından sürekli bir fırlatma ve uydu yenileme maliyeti yaratmaktadır.
+
+Aşağıdaki tablo, uzay iletişim altyapılarının temel dayanağı olan yörünge sınıflarının (LEO, GEO ve MEO) sistem karakteristiklerini karşılaştırmalı olarak özetlemektedir:
+
+Sistem KarakteristiğiLEO (Alçak Dünya Yörüngesi)GEO (Jeostatik Yörünge)MEO (Orta Dünya Yörüngesi)İrtifa Aralığı500 - 1.500 km 
+
+~35.786 km 
+
+LEO ile GEO arası konumlanır 
+
+Gecikme (Round-trip Latency)Çok Düşük (Karakteristik 10 ms) 
+
+Yüksek (Karakteristik 500 ms) 
+
+LEO'dan yüksek, GEO'dan düşük 
+
+Sürekli Kapsama İçin Uydu İhtiyacıYoğun ağ (binlerce uydu) 
+
+Küresel kapsama için 3-4 uydu 
+
+Orta ölçekli uydu gruplarıGörünürlük Süresi (Visibility Window)15 - 20 dakika 
+
+Sürekli görüş hattı (Sabit) 
+
+Saatler mertebesindeCoğrafi Kapsama KapasitesiDar alan (Spot Beam), Kutuplar dahil tam küresel 
+
+Geniş alan, Kutuplarda sinyal kaybı 
+
+Geniş kapsama, bölgesel odaklanmaYer İstasyonu ve Anten MimarisiKarmaşık ağ geçitleri, elektronik yönlendirmeli veya çok yönlü (omni) basit antenler 
+
+Yüksek güçlü, hareketli ve büyük çanak antenler 
+
+LEO ve GEO hibrit anten yapılarıDağıtım ve İşletme MaliyetiÇok yüksek (Sürekli yenileme ve devasa ağ zorunluluğu) 
+
+Orta ila Yüksek (Az uydu, yüksek birim maliyeti) 
+
+Yüksek dağıtım maliyeti 
+
+
+
+Fiziksel coğrafyanın haberleşme altyapıları üzerindeki etkisi incelendiğinde, Türkiye ve Avustralya gibi geniş bir yüzölçümüne, dağlık ve zorlu arazi koşullarına sahip bölgelerde LEO sistemleri, fiber optik gibi karasal altyapının ekonomik veya fiziksel olarak ulaşamadığı kırsal kesimler için en rasyonel ağ erişim alternatiflerinden birini oluşturmaktadır. GEO uydularının iletişim kurabilmesi için gökyüzünde tek bir noktaya engelsiz bir doğrudan görüş açısı gerektirmesine karşın, LEO takımyıldızlarının ağ yoğunluğu, binalar, ormanlık alanlar veya dağlık silsileler gibi fiziksel engellerin bulunduğu noktalarda sinyal bloke olma ihtimalini minimize etmektedir. Bir LEO uydusu engellendiğinde, saniyeler içerisinde farklı bir açıdan yaklaşan bir diğer uydu veri aktarımını devralabilmektedir. Ayrıca, LEO ağlarının yere daha yakın ağ geçitlerine (ground stations/gateways) ihtiyaç duyması, sinyalin ana internet omurgasına ulaşmadan önceki yolculuğunu kısaltmakta ve genel sistem verimliliğini maksimize etmektedir.
+
+Mega Takımyıldızların Donanım Mimarisi ve Starlink Ekosistemi
+
+Uzay endüstrisindeki özelleşme rüzgarının en belirgin temsilcilerinden biri olan ve SpaceX çatısı altında Starlink Services, LLC tarafından işletilen Starlink ağı, Mart 2026 istatistiklerine göre yörüngede konumlanmış 10.020'den fazla aktif LEO uydusu ile modern uzay altyapısının dominatörüdür. Bu devasa sayı, dünya üzerindeki tüm aktif yapay uyduların %65'ini tek başına oluşturduğunu göstermektedir. Halihazırda 150 farklı ülkeye ve bölgeye hizmet veren sistem, Şubat 2026 itibarıyla 10 milyon aktif aboneye ulaşarak telekomünikasyon tarihindeki en hızlı büyüyen donanım-tabanlı internet servis sağlayıcısı olmuştur. Starlink projesinin nihai üretim mimarisi, yüksek hızlı, yüksek bant genişlikli ve düşük gecikmeli küresel genişbant internet erişimini başta kırsal alanlar olmak üzere tüm dünya ekosistemine entegre etmektir.
+
+Starlink uydularının fiziksel üretim ve uzay aracı (spacecraft) donanımları, SpaceX'in maliyet düşürme ve seri üretim felsefesinin doğrudan bir yansımasıdır. Redmond, Washington'da tasarlanan ve üretilen her bir uydu, fırlatma maliyetlerini minimize etmek adına son derece hafif ve kompakt, düz panel bir tasarıma (compact, flat-panel design) sahiptir. Bu düzlem tasarımı, Falcon 9 roketlerinin kargo bölmesinde çok yoğun bir fırlatma yığını (dense launch stack) oluşturulmasına imkan vererek tek fırlatmada onlarca uydunun yörüngeye taşınmasını sağlamaktadır. Kütle olarak Starlink v1.0 uyduları yaklaşık 227 kg, daha yeni nesil olan V2 Mini sınıfı uyduları ise donanım yoğunluğuna bağlı olarak yaklaşık 740 ila 800 kg civarında bir fırlatma kütlesine sahiptir.
+
+Teknolojik donanım bileşenleri arasında ağın küresel bağımsızlığını sağlayan en kritik unsur uzay lazerleridir (Optical Intersatellite Links - ISLs). Her uydunun bünyesinde barındırdığı 3 adet optik uzay lazeri, 200 Gbps gibi muazzam hızlarda veri transferi gerçekleştirerek uydular arasında fiziksel sınırları aşan devasa bir uzay interneti örgü ağı (global internet mesh) kurmaktadır. Bu sayede bir paket, yeryüzündeki bir ağ geçidine inmek zorunda kalmadan okyanusların veya iletişim altyapısı bulunmayan coğrafyaların üzerinden doğrudan ışık hızıyla diğer uydulara aktarılabilmektedir.
+
+Uydu manevra, yörünge düzeltme ve kullanım ömrü sonu (end-of-life) protokolleri için sistem, endüstride ticari uydularda ilk kez kullanılan verimli "Argon İtki Sistemleri" (Argon Hall-effect thrusters) ile donatılmıştır. Geleneksel olarak kullanılan Kripton veya Ksenon gibi geleneksel ve son derece pahalı itici gazlar yerine (Starlink'in eski nesillerinde Kripton kullanılmaktaydı) Argon gazının tercih edilmesi, binlerce uyduluk bir takımyıldızın üretim maliyetlerini milyarlarca dolar azaltan temel bir inovasyondur.
+
+Radyo frekans (RF) iletişimi perspektifinden bakıldığında, Starlink'in uzaydan yere ve yerden uzaya veri köprüleri, gelişmiş çoklu anten dizilerinin spektrum içerisindeki harmonik çalışmasına dayanır. Her bir uydu şasisi üzerinde 5 adet gelişmiş Ku-bandı yönlendirilebilir faz dizili anten (phased array antenna) ve 3 adet çift bantlı (Ka-bandı ve E-bandı) yönlü anten bulunmaktadır.
+
+Kendi LEO Uydunuzu İnşa Etmek: Açık Kaynaklı Donanımlar (CubeSat ve PocketQube)
+
+Yüzlerce kilogramlık ve milyonlarca dolarlık bir bütçe gerektiren Starlink uydularına kıyasla, üniversite takımlarının, araştırmacıların ve amatör mühendislerin kendi LEO uydularını inşa etmesi için uluslararası düzeyde kabul görmüş CubeSat ve PocketQube standartları geliştirilmiştir. Bu standartlar, ticari uzay endüstrisinin felsefesini sivil alana taşıyarak uzay teknolojilerini donanımsal olarak demokratikleştirmiştir.
+
+CubeSat Standardı: 1U (Bir Birim) olarak adlandırılan bir CubeSat, 10x10x10 cm fiziksel boyutlarına sahiptir ve ağırlığı genellikle 1 ile 1.33 kg arasında sınırlandırılmıştır.
+
+PocketQube Standardı: CubeSat'tan çok daha küçük ve bütçe dostu olan PocketQube (1P) formatı, 5x5x5 cm ölçülerine (bir CubeSat'ın sekizde biri boyutundadır) ve maksimum 250 gram ağırlık sınırına sahiptir.
+
+Uydu Elektronikleri ve PyCubed Ekosistemi:
+
+Bir uydunun çekirdeğini sıfırdan tasarlamanın elektronik riskleri çok yüksektir; bu nedenle açık kaynaklı hazır platformlar endüstri standardı haline gelmiştir. Bu ekosistemin zirvesinde PyCubed yer almaktadır. PyCubed, uçuş yazılımının tamamı Python (CircuitPython) ile programlanabilen, uzay radyasyonu testlerinden geçmiş açık kaynaklı bir küçük uydu aviyonik (donanım/yazılım) çerçevesidir. Elektriksel güç kontrolünü (EPS), anakartı (OBC), telsiz iletişimini (Radyo modüllerini) ve uydunun uzaydaki yönünü bulmasını sağlayan yönelim belirleme sensörlerini PC104 uyumlu tek bir anakart üzerinde birleştirir. C veya C++ gibi dillerdeki zorlukları ortadan kaldıran PyCubed sayesinde, uydunun USB belleğe benzer bir şekilde bilgisayara bağlanarak saniyeler içinde programlanması mümkün olmaktadır.
+
+Buna ek olarak, uzay keşiflerini tamamen açık kaynaklı hale getirmeyi amaçlayan LibreCube projesi, uydu yapımını standartlaştırılmış donanım ve modüler elektronik bloklarla herkes için erişilebilir kılmayı hedefler. Bütçesi çok daha düşük olan kurumlar için ise AmbaSat gibi projeler, sensörlerin 3U CubeSat misyonlarında düşük maliyetlerle paylaşımlı olarak uçurulmasını (TRL 9 uçuş mirası) sağlayarak temel devre geliştiricilere devasa kolaylıklar sunmaktadır.
+
+Yörüngeye Fırlatma ve Görev Maliyetleri
+
+Bir LEO uydu projesinin donanımını tasarlayıp üretmek görev zincirinin sadece ilk yarısıdır; asıl zorlu aşama bu donanımı yörüngeye (örneğin 500 km irtifaya) çıkarmaktır. Günümüzde SpaceX'in Falcon 9 veya Rocket Lab'in Electron roketleri üzerinde uygulanan "Rideshare" (paylaşımlı fırlatma) programları, sivil uzay görevlerini ekonomik olarak mümkün kılmıştır.
+
+1U CubeSat Fırlatma Maliyeti: Bir 1U (10x10x10 cm) CubeSat'ın Güneş Eşzamanlı Yörüngeye (SSO) veya standart LEO'ya fırlatılma maliyeti günümüz pazarında ortalama 60.000 Dolar ile 90.000 Dolar arasında değişmektedir. NanoRacks aracılığıyla Uluslararası Uzay İstasyonu'ndan (ISS) yörüngeye bırakılma opsiyonu da yaklaşık 90.000 Dolar civarındadır.
+
+Fırlatma Lojistiği (Broker Firmalar): Uydunuzu doğrudan SpaceX'e teslim etmek yerine, bu süreci organize eden entegratör şirketler kullanılır. Örneğin Alba Orbital, dünyanın en çok PocketQube fırlatan kuruluşu olarak son derece düşük maliyetli "paylaşımlı" fırlatma paketleri sunmaktadır. Çoklu uydu ağları kurmak isteyen oluşumlar için ise Exolaunch gibi firmalar, fırlatıcı roketten bağımsız (launch-vehicle agnostic) EXOtube gibi donanımsal modüler ayırma adaptörleriyle uydunuzun rokete entegre edilmesini ve uzayda serbest bırakılmasını sağlamaktadır.
+
+Açık Kaynaklı Uydu İstasyonları, SDR Mimarileri ve Faz Dizili Antenler
+
+Uydunuzu yörüngeye gönderdikten sonraki en kritik ihtiyaç, onunla iletişim kurabileceğiniz, veri gönderip (uplink) telemetri alabileceğiniz (downlink) bir Yer İstasyonu'na sahip olmaktır. Geniş bant ağlar (Starlink, Iridium vb.) ticari devlerin elinde şekillenirken, amatör uzay bilimciler ve elektronik mühendisleri yazılım tanımlı radyo (SDR) gücünü kullanarak sivil bilimi demokratikleştiren küresel yer istasyonu mimarileri inşa etmişlerdir.
+
+Faz Dizili Anten (Phased Array) Prensipleri
+
+Mega takımyıldızların haberleşme hızı ve kapsama avantajı, uyduların ve yer terminallerinin kullandığı "Faz Dizili" (Phased Array) anten teknolojisinden gelmektedir. Klasik antenlerin aksine, bu sistemler sinyalin yönünü değiştirmek için mekanik bir motor kullanmazlar; bunun yerine çok sayıda küçük anten elemanından oluşan bir matris kullanırlar. Sinyal, matristeki her bir anten elemanına farklı elektriksel gecikmeler (phase delays) ile verilir. Dalgaların uzayda yapıcı ve yıkıcı girişimi (constructive and destructive interference) hesaplanarak, enerjinin gökyüzünde istenilen uydunun tam üzerine odaklandığı keskin bir "hüzme" (directional beam) yaratılır. Bu teknoloji amatör mühendislere "Nasıl kendi faz dizili antenimi yapabilirim?" sorusunu sordurtmuştur.
+
+Bu karmaşık konsepti laboratuvar ortamında modellemek ve öğrenmek isteyen mühendisler, Analog Devices firmasının "Phaser" (ADALM-PHASER veya CN0566) adı verilen ticari-eğitim modülünden faydalanmaktadır. Phaser sistemi; bir PlutoSDR modülü, ADAR1000 faz kontrol çipleri (beamformers), 8 kanallı düşük maliyetli anten dizisi ve bir Raspberry Pi mikrobilgisayarının birleşiminden oluşur. Sistem, tıpkı Starlink'in yaptığı gibi 10.25 GHz bandında (X-Bant / Ku-Bant alt sınırı) çalışarak kullanıcılara Python kodları üzerinden kendi algoritmalarıyla sinyallerin geliş yönünü (Direction of Arrival) tayin etme ve hüzme yönlendirme (beam steering) yeteneği sunar. Bu, dijital mikrodalga elektroniğinin zirvesinin artık üniversite sıralarına ve bireysel masaüstlerine inmiş halidir.
+
+GNU Radio ve Sinyal Demodülasyon İş Akışları
+
+Uydunuzdan gelen yayınların kodlarını kırmak ve telemetri paketlerini çözmek için geliştirilen yazılımın kalbinde, tüm amatör uzay bilimcilerin mutabık olduğu "GNU Radio" ekosistemi yer almaktadır. GNU Radio, alınan karmaşık taban bandı (complex baseband) örneklerini dijital olarak işleyip, donanım temelli osilatörler ve filtreler yerine yazılım tabanlı, C++ ve Python ile kurgulanmış grafik tabanlı blok akış şemaları (flowgraphs) kullanır. Sadece dijital olarak örneklenmiş dalga formlarını (bitler, baytlar, vektörler) kullanarak sinyali bilgiye çevirir.
+
+Özellikle yörüngedeki on binlerce eğitimsel ve amatör uydunun (CubeSat'lar) telemetrilerini almak için açık kaynaklı gr-satellites eklentisi (out-of-tree module) standart kabul edilir. AX.25, GOMspace NanoCom U482C modem protokolleri, FUNcube (AO-40) ve çok daha karmaşık uzay modülasyon tiplerini destekleyen bu eklenti, verilerdeki ileri hata düzeltme (Forward Error Correction - FEC) algoritmalarını otomatik hesaplayarak, karmaşık radyo cızırtısını okunabilir metin dosyalarına (JSON logları, otobüs voltaj verileri) dönüştürebilir.
+
+SatNOGS ve TinyGS: Vatandaş Bilim İnsanı Ağları
+
+Bireylerin kurdukları bu radyo alıcılarını izole laboratuvarlarından çıkarıp, dünyayı devasa bir gözlemevi haline getiren ve kendi uydunuzu takip etmenizi kolaylaştıran iki devrimsel ağ yapısı ortaya çıkmıştır:
+
+SatNOGS (Satellite Networked Open Ground Station): Libre Space Foundation tarafından temelleri atılan SatNOGS, yörüngedeki düşük irtifa uydularını takip eden ve küresel çapta gönüllülerin oluşturduğu birbirine bağlı binlerce yer istasyonundan oluşan açık kaynaklı bir sistemdir. Ağın mimarisi modülerdir: Sistemin beyni görev planlamalarını ve keşifleri yürüten SatNOGS Network, uyduların transponder verilerinin kitle kaynaklı girildiği SatNOGS DB veritabanı ve istasyondaki donanımı tetikleyen SatNOGS Client yazılımından oluşur. İstasyonun yazılım omurgası SDR üzerine kuruludur; gr-soapy (SoapySDR) aracılığıyla RTL-SDR, Airspy, HackRF gibi çok çeşitli kartları doğrudan GNU Radio (satnogs-flowgraphs) akış şemalarına bağlar.
+
+TinyGS: Karmaşık SDR donanımlarına bütçe ayıramayan sivil uzay meraklıları için tasarlanmış bir diğer sivil platformdur. Bu proje, çok ucuz ESP32 mikroişlemcili "LoRa" (Long Range) IoT çipleri kullanılarak yörüngedeki LoRa tabanlı mikro uyduları takip eden bir yapıya dönüşmüştür. Standart bir anten, Düşük Gürültülü Amplifikatör (LNA) ve bir bant geçiren filtre kullanılarak, hiçbir karmaşık kurulum gerektirmeksizin uydu paketleri (telemetriler) yakalanır ve anında TinyGS küresel bulut ağına yüklenir.
+
+Türkiye'nin Amatör Uydu Projeleri (Grizu-263A) ve Frekans Mevzuatı
+
+Kendi LEO uydunuzu fırlatıp onunla iletişim kurmak, sadece teknik bir başarı değil aynı zamanda uluslararası uzay hukuku ve ulusal frekans tahsis regülasyonları ile uyum gerektiren bir süreçtir. Türkiye'de bir uyduyla yasal olarak iletişim kurabilmek, Amatör Telsizcilik mevzuatlarına tabidir.
+
+Türkiye'deki LEO Cep Uydusu Başarısı: Grizu-263A
+
+Amatör uydu sistemleri söz konusu olduğunda Türkiye'deki en sembolik akademik sivil başarı, Zonguldak Bülent Ecevit Üniversitesi bünyesinde kurulan "Grizu-263 Uzay Takımı" tarafından tasarlanan Grizu-263A uydusudur. Zonguldak maden ocaklarındaki kayıpların anısına isimlendirilen bu tarihi uydu, PocketQube standardında, yani sadece 5x5x5 cm ölçülerinde küçücük bir cep uydusudur. Grizu-263A, 13 Ocak 2022 tarihinde Türkiye saati ile 18.25'te ABD'deki Cape Canaveral Fırlatma Üssü'nden bir SpaceX Falcon 9 roketi ile başarılı bir şekilde uzaya (Alçak Dünya Yörüngesi'ne) fırlatılmıştır. Bu olağanüstü proje, bağımsız mühendislerin ve öğrencilerin devasa bütçeler gerektirmeden kendi uydu donanımlarını uzaya çıkarabileceklerinin kanıtıdır.
+
+Telsiz Tüzüğü ve Amatör Frekans Tahsis Planı
+
+Kendi uydunuz ile iletişim kurmak (havada RF sinyali yayacak bir yer istasyonu cihazı çalıştırmak) 2813 Sayılı Telsiz Kanunu ve Bilgi Teknolojileri ve İletişim Kurumu (BTK) yönetmelikleri uyarınca özel izinlere ve ehliyetlere tabidir. Uydu ile konuşabilmek için mutlaka "Amatör Telsizcilik Belgesi" alınması şarttır.
+
+Uydu haberleşmesi amaçlı projelerde (telemetri indirme ve komut gönderme) BTK tarafından tahsis edilen Amatör Bant Planı dünya genelindeki (IARU) standartlarla paraleldir:
+
+VHF Bandı (2 Metre): Gökyüzündeki sivil CubeSat/PocketQube uydularının telemetrilerini yakalamak (downlink) veya komut atmak (uplink) için standart olarak 144 - 146 MHz ve 148 - 152 MHz aralıkları kullanılır.
+
+UHF Bandı (70 Santimetre): Uzay operasyonları ve uydular arası çapraz bağlantılar için 432.000 - 432.975 MHz frekans aralığı, salt uydu bağlantısı için özel olarak izin verilen spektrumdur. Buna ek olarak, 433.050 - 434.790 MHz bandı TinyGS istasyonlarının LoRa verileri için sıkça kullanılan tahsis bölgesidir.
+
+Genel Değerlendirme ve Uzay Teknolojilerinin Gelecek Vizyonu
+
+Uzay teknolojilerinde geçmiş yıllarda yalnızca devletlerin ve SpaceX gibi dev şirketlerin sahip olduğu yörüngeye uydu yerleştirme kapasitesi, bugün akademik kurumlar, küçük işletmeler ve sivil uzay takımları için tamamen demokratikleşmiştir. Starlink gibi sistemler Alçak Dünya Yörüngesi'nin (LEO) ticari potansiyelini ispatlamış olup, dev takımyıldızların kullandığı lazer bağlantıları ve Argon itki sistemleri gibi teknolojiler çıtayı her geçen gün yükseltmektedir.
+
+Ancak bir birey ya da üniversite ekibinin kendi uydusunu tasarlaması artık bilim kurgu olmaktan çıkmıştır. PocketQube (5x5x5 cm) ve CubeSat standartları, uyduların boyutunu ve maliyetini ulaşılabilir seviyelere çekmiştir. Grizu-263A projesinin SpaceX Falcon 9 ile fırlatılış öyküsü, Türkiye'de bu ekosistemin ne kadar olgunlaştığını göstermektedir. Yazılım tarafında PyCubed gibi tüm aviyoniğin Python ile yönetilebildiği sistemler karmaşıklığı ortadan kaldırırken, fırlatma tarafında Alba Orbital ve Exolaunch gibi paylaşımlı uçuş (Rideshare) sağlayıcıları ortalama 60-90 bin dolar seviyesine uyduları yörüngeye bırakabilmektedir.
+
+Nihayetinde uydunuzla iletişim kurmak için kuracağınız bir SatNOGS veya TinyGS yer istasyonu ile donanım süreciniz tamamlanır. Uzay mimarisine adım atmak, uluslararası frekans regülasyonlarına (BTK Amatör Telsizcilik lisanslarına) ve standartlara uymak kaydıyla, günümüzde bir garaj mühendisliği projesinden doğrudan fırlatma rampalarına taşınabilen bir vizyon haline gelmiştir.
